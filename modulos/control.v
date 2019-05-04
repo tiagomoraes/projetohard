@@ -37,8 +37,9 @@ WAIT: begin
 end
 */
 
-module Control(
+module control(
 	input clk,
+	input reset,
 	input [5:0] opCode,
 	input [5:0] funct,
 	input overFlow, 
@@ -76,7 +77,7 @@ module Control(
 	output reg [2:0] shiftcontrol,
 	output reg epcwrite,
 	output reg [1:0] alulogic
-)
+);
 
 parameter RESET = 6'd0;
 parameter FETCH = 6'd1;
@@ -141,10 +142,51 @@ parameter EXP_WRITE = 6'd58;
 reg state;
 reg nextState;
 
-always@(state) begin
-	case (state)
-		RESET: begin
+always@(posedge clk or posedge reset) begin
+	if (reset)
+		state <= RESET;
+	else
+		state <= nextState;
+end 
 
+always@(*) begin
+	case (state)
+    
+		RESET: begin
+			iord = 3'b000;
+			memrw = 1'b0;
+			irwrite = 1'b0;
+			regdest = 2'b11;
+			memtoreg = 3'b000;
+			regwrite = 1'b1;
+			awrite = 1'b0;
+			bwrite = 1'b0;
+			alusrca = 2'b00; 
+			alusrcb = 3'b000;
+			aluop = 3'b000;
+			aluoutwrite = 1'b0;
+			pcsrc = 3'b000;
+			pcwrite = 1'b0;
+			pcwritecond = 1'b0;
+			dsrcontrol = 2'b00;
+			inccontrol = 1'b0;
+			mdrwrite = 1'b0;
+			mloadab= 1'b0;
+			mult = 1'b0;
+			dloadab = 1'b0;
+			div = 1'b0;
+			muxhigh = 1'b0;
+			muxlow = 1'b0;
+			highwrite = 1'b0;
+			lowwrite = 1'b0;
+			dlrcontrol = 2'b00;
+			shamtcontrol =  1'b0;
+			shiftval = 1'b0;
+			shiftcontrol = 3'b000;
+			epcwrite = 1'b0;
+			alulogic = 2'b00;
+
+			nextState = DECODE;
 		end
 
         FETCH: begin
