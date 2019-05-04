@@ -186,7 +186,7 @@ always@(*) begin
 			epcwrite = 1'b0;
 			alulogic = 2'b00;
 
-			nextState = DECODE;
+			nextState = FETCH;
 		end
 
         FETCH: begin
