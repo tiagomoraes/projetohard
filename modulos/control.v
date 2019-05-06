@@ -139,8 +139,8 @@ parameter NOPCODE = 6'd56;
 parameter EXP_WAIT = 6'd57;
 parameter EXP_WRITE = 6'd58;
 
-reg state;
-reg nextState;
+reg [5:0]state;
+reg [5:0]nextState;
 
 always@(posedge clk or posedge reset) begin
 	if (reset)

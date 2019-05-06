@@ -136,6 +136,7 @@ module cpu (clk, reset);
 
 	//registradores
 
+	Registrador pc (.Clk(clk), .Reset(reset), .Load(pcwrite), .Entrada(pc_in), .Saida(pc_out));
 	Registrador rega (.Clk(clk), .Reset(reset), .Load(awrite), .Entrada(read_data_a), .Saida(reg_out_a));
 	Registrador regb (.Clk(clk), .Reset(reset), .Load(bwrite), .Entrada(read_data_b), .Saida(reg_out_b));
 	Registrador aluout (.Clk(clk), .Reset(reset), .Load(aluoutwrite), .Entrada(alu_result), .Saida(reg_alu_out));
