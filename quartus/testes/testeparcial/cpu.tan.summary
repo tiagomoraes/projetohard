@@ -1,0 +1,46 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 8.779 ns
+From           : Instr_Reg:ir|Instr15_0[15]
+To             : imediate_extend[29]
+From Clock     : clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 40.90 MHz ( period = 24.452 ns )
+From           : control:ctrl|aluop[1]
+To             : Registrador:aluout|Saida[31]
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clk'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : control:ctrl|state.ADDI
+To             : control:ctrl|nextState.REG_WRITE_714
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 163
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 163
+
+--------------------------------------------------------------------------------------
+

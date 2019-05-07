@@ -1,0 +1,9 @@
+module signextend16_32 (in, out);
+    input wire [15:0]in;
+    output wire [15:0]out;
+    
+    parameter negative = 16'b1000000000000000;
+    parameter positive = 16'b0000000000000000;
+
+    assign out = (in[15]) ? {negative, in[15:0]} : {positive, in[15:0]}
+endmodule
