@@ -142,7 +142,7 @@ module cpu (clk, reset);
 	Registrador aluout (.Clk(clk), .Reset(reset), .Load(aluoutwrite), .Entrada(alu_result), .Saida(reg_alu_out));
 	Registrador epc (.Clk(clk), .Reset(reset), .Load(epcwrite), .Entrada(alu_result), .Saida(epc_out));
 
-	Instr_Reg ir (.Clk(clk), .Reset(reset), .Load_ir(regwrite), .Entrada(mem_out), .Instr31_26(opcode), .Instr25_21(rs), .Instr20_16(rt), .Instr15_0(imediate));
+	Instr_Reg ir (.Clk(clk), .Reset(reset), .Load_ir(irwrite), .Entrada(mem_out), .Instr31_26(opcode), .Instr25_21(rs), .Instr20_16(rt), .Instr15_0(imediate));
 
 	//muxes
 
