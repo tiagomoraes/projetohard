@@ -40,6 +40,8 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	wire [5:0]opcode;
 	wire [4:0]rs;
 	wire [4:0]rt;
+	wire [4:0]shift_amt;
+	wire [4:0]shift_in;
 	//wire [15:0]imediate;
 	wire [4:0]rd = imediate[15:11]; // se der merda checar se essas atriuicoes tao de boa
 	wire [5:0]funct = imediate[5:0];
@@ -53,6 +55,7 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	wire [31:0]alu_in_b;
 	wire [31:0]alu_result;
 	wire [31:0]epc_out;
+	wire [31:0]shift_out;
 	//wire [31:0]imediate_extend;
 
 	//fios do controle - todos est�o descritos porem pro add nao vai precisar de tudo
@@ -182,7 +185,7 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 		.b(undefined),
 		.c(undefined),
 		.d(reg_alu_out),
-		.e(undefined),
+		.e(shift_out),
 		.f(undefined),
 		.g(undefined),
 		.h(undefined),
@@ -221,6 +224,18 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 		.sel(pcsrc),
 		.out(pc_in)
 	);
+	mux5_2x1 mux_shamtcontrol (
+		.a(imediate[10:6]),
+		.b(reg_out_b[4:0]),
+		.sel(shamtcontrol),
+		.out(shift_amt)
+	);
+	mux32_2x1 mux_shiftval (
+		.a(reg_out_b),
+		.b(reg_out_a),
+		.sel(shiftval),
+		.out(shift_in)
+	);
 
 	//banco de reg
 
@@ -234,6 +249,17 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 		.WriteData(write_data),
 		.ReadData1(read_data_a),
 		.ReadData2(read_data_b)
+	);
+
+	//registrador de deslocamento
+
+	RegDesloc shift_reg (
+		.Clk(clk),
+		.Reset(reset),
+		.Shift(shiftcontrol),
+		.N(shift_amt),
+		.Entrada(shift_in),
+		.Saida(shift_out)
 	);
 
 	//alu
