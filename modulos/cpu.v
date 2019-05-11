@@ -1,4 +1,4 @@
-module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adress_in, mem_out);
+module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adress_in, mem_out, mdr_out);
 
 	//inputs
 
@@ -10,10 +10,7 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	output wire [31:0]imediate_extend;
 	output wire [31:0]mem_adress_in;
 	output wire [31:0]mem_out;
-
-	//outputs (precisa? , j� da pra ver os regs no waveform)
-
-	//parametros - ver se d� pra passar um como argumento para algum m�dulo ou se te que criar alguma variavel pro valor(provavel q tenha q mudar)
+	output wire [31:0]mdr_out;
 
 	parameter stack_pointer = 5'd29; // $29
 	parameter stack_top = 32'd227;
@@ -26,17 +23,18 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	parameter undefined = 32'd0; // parametro pra preecheer mux (pra os fios q ainda não estão feitos)
 
 	//fios - ver depois os fios que vao precisar pra outras instrucoes alem do add (conferir se tudo do add ta ai)
-	//nao precisa da excecao pra quinta
 
+	wire lt;
+	wire gt;
+	wire et;
+	wire [31:0]lt_32;
 	wire [31:0]pc_in;
+	wire [31:0]branch;
 	//wire [31:0]pc_out;
 	//wire [31:0]mem_adress_in;
 	wire [31:0]mem_data_in;
 	//wire [31:0]mem_out;
 	//wire [31:0]reg_alu_out; //fio que sai de aluout
-	//wire [31:0]incdecadr; endere�o inc/dec - entrada do mux do q vai ler na memoria - ainda n precisa
-	//wire [31:0]mdrout; ainda n precisa
-	//wire [31:0]ir_out; (nao e assim: ver saidas do modulo Instr_Reg)
 	wire [5:0]opcode;
 	wire [4:0]rs;
 	wire [4:0]rt;
@@ -45,23 +43,42 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	//wire [15:0]imediate;
 	wire [4:0]rd = imediate[15:11]; // se der merda checar se essas atriuicoes tao de boa
 	wire [5:0]funct = imediate[5:0];
+	wire [31:0]incdecadr;
+	wire [25:0]instruction_26 = {rs, rt, imediate};
+	wire [27:0]instruction_28;
+	wire [31:0]jump_adr = {pc_out[31:28], instruction_28};
 	wire [31:0]read_data_a;
 	wire [31:0]read_data_b;
 	wire [31:0]reg_out_a;
 	wire [31:0]reg_out_b;
 	wire [4:0]write_register;
 	wire [31:0]write_data;
+	wire [31:0]write_data_mem;
 	wire [31:0]alu_in_a;
 	wire [31:0]alu_in_b;
 	wire [31:0]alu_result;
 	wire [31:0]epc_out;
 	wire [31:0]shift_out;
+	wire [31:0]imediate_lui;
+	wire [31:0]dsr_out;
+	wire [31:0]dlr_out;
+	wire [31:0]mult_high_out;
+	wire [31:0]mult_low_out;
+	wire [31:0]div_high_out;
+	wire [31:0]div_low_out;
+	wire [31:0]high_in;
+	wire [31:0]low_in;
+	wire [31:0]high_out;
+	wire [31:0]low_out;
 	//wire [31:0]imediate_extend;
 
-	//fios do controle - todos est�o descritos porem pro add nao vai precisar de tudo
-
+	//fios do controle
+	
+	wire alu_logic_out;
 	wire pcwrite;
 	wire pcwritecond;
+	wire pcwritecondand = pcwritecond & alu_logic_out;
+	wire pcwriteor = pcwrite | pcwritecondand;
 	wire inccontrol;
 	wire memrw;
 	wire irwrite;
@@ -82,7 +99,6 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	wire epcwrite;
 	wire shamtcontrol;
 	wire shiftval;
-	wire overflowmult;
 	wire overflowalu;
 	wire [1:0]alulogic;
 	wire [1:0]alusrca;
@@ -95,11 +111,6 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	wire [2:0]aluop;
 	wire [2:0]shiftcontrol;
 	wire [2:0]pcsrc;
-
-	//modulos da cpu
-	//instanciar os modulos com a seguinte sintaxe:
-
-	// modulo nomedomodulo (.Arg1(var1), ... , .Argn(varn))
 	
 	//Controle
 
@@ -108,8 +119,8 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 		.reset(reset),
 		.opCode(opcode),
 		.funct(funct),
-		.overFlow(overflowalu), // por enquanto mandando o overflow da alu direto - mudar dps
-		.divZero(divzero),// divzero ainda tem nada
+		.overFlow(overflowalu), 
+		.divZero(divzero),
 		.iord(iord),
 		.memrw(memrw),
 		.irwrite(irwrite),
@@ -147,32 +158,40 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	//extensores
 
 	signextend16_32 extend16_32 (.in(imediate), .out(imediate_extend));
+	shiftleft2_32_32 shift_extend32_32 (.imediate(imediate_extend), .imediate_shifted(branch));
+	shiftleft2_26_28 shift_extend26_28 (.instruction_26(instruction_26), .instruction_28(instruction_28));
+	shiftleft16_16_32 shift_extend16_32 (.imediate(imediate), .imediate_shifted(imediate_lui));
+	signextend1_32 extend1_32 (.lt(lt), .lt_32(lt_32));
+	unsignextend26_32 extend26_32 (.instruction_26(instruction_26), .instruction_32(incdecadr));
 
 	//registradores
 
-	Registrador pc (.Clk(clk), .Reset(reset), .Load(pcwrite), .Entrada(pc_in), .Saida(pc_out));
+	Registrador pc (.Clk(clk), .Reset(reset), .Load(pcwriteor), .Entrada(pc_in), .Saida(pc_out));
 	Registrador rega (.Clk(clk), .Reset(reset), .Load(awrite), .Entrada(read_data_a), .Saida(reg_out_a));
 	Registrador regb (.Clk(clk), .Reset(reset), .Load(bwrite), .Entrada(read_data_b), .Saida(reg_out_b));
 	Registrador aluout (.Clk(clk), .Reset(reset), .Load(aluoutwrite), .Entrada(alu_result), .Saida(reg_alu_out));
 	Registrador epc (.Clk(clk), .Reset(reset), .Load(epcwrite), .Entrada(alu_result), .Saida(epc_out));
+	Registrador high (.Clk(clk), .Reset(reset), .Load(highwrite), .Entrada(high_in), .Saida(high_out));
+	Registrador low (.Clk(clk), .Reset(reset), .Load(lowwrite), .Entrada(low_in), .Saida(low_out));
+	Registrador mdr (.Clk(clk), .Reset(reset), .Load(mdrwrite), .Entrada(mem_out), .Saida(mdr_out));
 
 	Instr_Reg ir (.Clk(clk), .Reset(reset), .Load_ir(irwrite), .Entrada(mem_out), .Instr31_26(opcode), .Instr25_21(rs), .Instr20_16(rt), .Instr15_0(imediate));
 
 	//muxes
 
-	mux32_8x1 mux_iord (
+	mux32_8x1 mux_iord ( //done
 		.a(pc_out),
-		.b(undefined),
+		.b(incdecadr),
 		.c(opcode_exp),
 		.d(over_exp),
 		.e(div_exp),
 		.f(reg_alu_out),
-		.g(undefined),
-		.h(undefined),
+		.g(undefined), //not used
+		.h(undefined), //not used
 		.sel(iord),
 		.out(mem_adress_in)
 	);
-	mux5_4x1 mux_regdest (
+	mux5_4x1 mux_regdest ( //done
 		.a(rt), 
 		.b(rd), 
 		.c(return_adress), 
@@ -180,66 +199,92 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 		.sel(regdest), 
 		.out(write_register)
 	);
-	mux32_8x1 mux_memtoreg (
+	mux32_8x1 mux_memtoreg ( //done
 		.a(stack_top),
-		.b(undefined),
-		.c(undefined),
+		.b(imediate_lui),
+		.c(lt_32),
 		.d(reg_alu_out),
 		.e(shift_out),
-		.f(undefined),
-		.g(undefined),
-		.h(undefined),
+		.f(low_out), 
+		.g(high_out),
+		.h(dlr_out), 
 		.sel(memtoreg),
 		.out(write_data)
 	);
-	mux32_4x1 mux_alusrca (
+	mux32_4x1 mux_alusrca ( // done
 		.a(pc_out),
-		.b(undefined),
+		.b(mdr_out),
 		.c(reg_out_a),
-		.d(undefined),
+		.d(undefined), //not used
 		.sel(alusrca),
 		.out(alu_in_a)
 	);
-	mux32_8x1 mux_alusrcb (
+	mux32_8x1 mux_alusrcb ( // done
 		.a(reg_out_b),
 		.b(alu_1),
 		.c(alu_4),
 		.d(imediate_extend),
-		.e(undefined),
-		.f(undefined),
-		.g(undefined),
-		.h(undefined),
+		.e(branch),
+		.f(undefined), //not used
+		.g(undefined), //not used
+		.h(undefined), //not used
 		.sel(alusrcb), 
 		.out(alu_in_b)
 	);
-	mux32_8x1 mux_pcsrc (
+	mux32_8x1 mux_pcsrc ( //done
 		.a(alu_result),
 		.b(epc_out),
-		.c(undefined),
-		.d(undefined),
+		.c(dlr_out),
+		.d(jump_adr),
 		.e(reg_alu_out),
 		.f(reg_out_a),
-		.g(undefined),
-		.h(undefined),
+		.g(undefined), // not used
+		.h(undefined), // not used
 		.sel(pcsrc),
 		.out(pc_in)
 	);
-	mux5_2x1 mux_shamtcontrol (
+	mux5_2x1 mux_shamtcontrol ( //done
 		.a(imediate[10:6]),
 		.b(reg_out_b[4:0]),
 		.sel(shamtcontrol),
 		.out(shift_amt)
 	);
-	mux32_2x1 mux_shiftval (
+	mux32_2x1 mux_shiftval ( //done
 		.a(reg_out_b),
 		.b(reg_out_a),
 		.sel(shiftval),
 		.out(shift_in)
 	);
+	mux32_2x1 mux_high ( //done
+		.a(mult_high_out),
+		.b(div_high_out),
+		.sel(muxhigh),
+		.out(high_in)
+	);
+	mux32_2x1 mux_low ( //done
+		.a(mult_low_out),
+		.b(div_low_out),
+		.sel(muxlow),
+		.out(low_in)
+	);
+	mux32_2x1 mux_inc ( //done
+		.a(reg_alu_out),
+		.b(dsr_out),
+		.sel(inccontrol),
+		.out(write_data_mem)
+	);
+	mux1_4x1 mux_alulogic ( //done
+		.a(et),
+		.b(~et),
+		.c(gt),
+		.d(~gt),
+		.sel(alulogic),
+		.out(alu_logic_out)
+	);
 
 	//banco de reg
 
-	Banco_reg bancoreg (
+	Banco_reg bancoreg ( // done
 		.Clk(clk),
 		.Reset(reset),
 		.RegWrite(regwrite),
@@ -253,7 +298,7 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 
 	//registrador de deslocamento
 
-	RegDesloc shift_reg (
+	RegDesloc shift_reg ( // done
 		.Clk(clk),
 		.Reset(reset),
 		.Shift(shiftcontrol),
@@ -264,23 +309,46 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 
 	//alu
 
-	ula32 alu (
+	ula32 alu ( // done 
 		.A(alu_in_a),
 		.B(alu_in_b),
 		.Seletor(aluop),
 		.S(alu_result),
 		.Overflow(overflowalu),
-		// declarar as outras saidas dps
+		.Menor(lt),
+		.Igual(et),
+		.Maior(gt)
 	);
+
+	//mult
+
+
+
+	//div
+
+
 
 	//memoria
 
-	Memoria memory (
+	Memoria memory ( //done
 		.Address(mem_adress_in),
 		.Clock(clk),
 		.Wr(memrw),
 		.Datain(mem_data_in),
 		.Dataout(mem_out)
+	);
+
+	dlr DLR (
+		.data(mdr_out),
+		.dlrcontrol(dlrcontrol),
+		.out(dlr_out)
+	);
+
+	dsr DSR (
+		.b(reg_out_b),
+		.data(mdr_out),
+		.dsrcontrol(dsrcontrol),
+		.out(dsr_out)
 	);
 	
 endmodule
