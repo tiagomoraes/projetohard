@@ -716,8 +716,8 @@ always@(*) begin
             highwrite = 1'b0;
             lowwrite = 1'b0;
             dlrcontrol = 2'b00;
-            shamtcontrol =  1'b0;
-            shiftval = 1'b0;
+            shamtcontrol =  1'b1;
+            shiftval = 1'b1;
             shiftcontrol = 3'b010;
             epcwrite = 1'b0;
             alulogic = 2'b00;
@@ -753,8 +753,8 @@ always@(*) begin
             highwrite = 1'b0;
             lowwrite = 1'b0;
             dlrcontrol = 2'b00;
-            shamtcontrol =  1'b0;
-            shiftval = 1'b0;
+            shamtcontrol =  1'b1;
+            shiftval = 1'b1;
             shiftcontrol = 3'b100;
             epcwrite = 1'b0;
             alulogic = 2'b00;

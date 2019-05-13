@@ -39,7 +39,7 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	wire [4:0]rs;
 	wire [4:0]rt;
 	wire [4:0]shift_amt;
-	wire [4:0]shift_in;
+	wire [31:0]shift_in;
 	//wire [15:0]imediate;
 	wire [4:0]rd = imediate[15:11]; // se der merda checar se essas atriuicoes tao de boa
 	wire [5:0]funct = imediate[5:0];
