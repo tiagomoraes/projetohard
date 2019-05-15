@@ -51,8 +51,8 @@ module mult(clk, mult, mult_end, a, b, high, low, reset);
             add = 65'b0;
             sub = 65'b0;
             prod = 65'b0;
+            cont = -1;
         end
     end
 
 endmodule
-
