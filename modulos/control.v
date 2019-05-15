@@ -44,6 +44,8 @@ module control(
 	input [5:0] funct,
 	input overFlow, 
 	input divZero,
+    input multend,
+    input divend,
 	
 	output reg [2:0] iord,
 	output reg memrw,
@@ -1058,7 +1060,7 @@ always@(*) begin
             nextState = MULT_CALC;
         end
 
-        MULT_CALC: begin // FALTA FAZER!!!!!!!!!!!
+        MULT_CALC: begin // ver se ta certo
             iord = 3'b000;
             memrw = 1'b0;
             irwrite = 1'b0;
@@ -1091,8 +1093,10 @@ always@(*) begin
             shiftcontrol = 3'b000;
             epcwrite = 1'b0;
             alulogic = 2'b00;
-
-            nextState = DECODE;
+            if (multend) 
+                nextState = MULT_RESULT;
+            else
+                nextState = MULT_CALC;
         end
         
         MULT_RESULT: begin
@@ -1169,7 +1173,7 @@ always@(*) begin
             nextState = DIV_CALC;
         end
 
-        DIV_CALC: begin // FALTA FAZER!!!!!!
+        DIV_CALC: begin // ver se ta certo
             iord = 3'b000;
             memrw = 1'b0;
             irwrite = 1'b0;
@@ -1203,7 +1207,10 @@ always@(*) begin
             epcwrite = 1'b0;
             alulogic = 2'b00;
 
-            nextState = DECODE;
+            if (divend)
+                nextState = DIV_RESULT;
+            else 
+                nextState = DIV_RESULT;
         end
 
         DIV_RESULT: begin

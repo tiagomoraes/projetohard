@@ -73,7 +73,9 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	//wire [31:0]imediate_extend;
 
 	//fios do controle
-	
+
+	wire multend;
+	wire divend;
 	wire alu_logic_out;
 	wire pcwrite;
 	wire pcwritecond;
@@ -121,6 +123,8 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 		.funct(funct),
 		.overFlow(overflowalu), 
 		.divZero(divzero),
+		.multend(multend),
+		.divend(divend),
 		.iord(iord),
 		.memrw(memrw),
 		.irwrite(irwrite),
@@ -322,11 +326,20 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 
 	//mult
 
-
+	mult MULT (
+		.clk(clk),
+		.mult(mloadab),
+		.reset(reset),
+		.a(reg_out_a),
+		.b(reg_out_b),
+		.high(mult_high_out),
+		.low(mult_low_out),
+		.mult_end(multend)
+	);
 
 	//div
 
-
+	
 
 	//memoria
 
