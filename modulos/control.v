@@ -140,6 +140,11 @@ parameter DIVZERO = 6'd55;
 parameter NOPCODE = 6'd56;
 parameter EXP_WAIT = 6'd57;
 parameter EXP_WRITE = 6'd58;
+parameter WAIT_2 = 6'd59;
+parameter INCDEC_WAIT_2 = 6'd60;
+parameter LS_WAIT_2 = 6'd61;
+parameter EXP_WAIT_2 = 6'd62;
+
 
 reg [5:0]state;
 reg [5:0]nextState;
@@ -229,6 +234,43 @@ always@(*) begin
         end
 
         WAIT: begin
+            iord = 3'b000;
+            memrw = 1'b0;
+            irwrite = 1'b0;
+            regdest = 2'b00;
+            memtoreg = 3'b000;
+            regwrite = 1'b0;
+            awrite = 1'b0;
+            bwrite = 1'b0;
+            alusrca = 2'b00; 
+            alusrcb = 3'b000;
+            aluop = 3'b000;
+            aluoutwrite = 1'b0;
+            pcsrc = 3'b000;
+            pcwrite = 1'b0;
+            pcwritecond = 1'b0;
+            dsrcontrol = 2'b00;
+            inccontrol = 1'b0;
+            mdrwrite = 1'b0;
+            mloadab= 1'b0;
+            mult = 1'b0;
+            dloadab = 1'b0;
+            div = 1'b0;
+            muxhigh = 1'b0;
+            muxlow = 1'b0;
+            highwrite = 1'b0;
+            lowwrite = 1'b0;
+            dlrcontrol = 2'b00;
+            shamtcontrol =  1'b0;
+            shiftval = 1'b0;
+            shiftcontrol = 3'b000;
+            epcwrite = 1'b0;
+            alulogic = 2'b00;
+
+            nextState = WAIT_2;
+        end
+
+         WAIT_2: begin
             iord = 3'b000;
             memrw = 1'b0;
             irwrite = 1'b1;
@@ -1416,7 +1458,45 @@ always@(*) begin
             pcwritecond = 1'b0;
             dsrcontrol = 2'b00;
             inccontrol = 1'b0;
-            mdrwrite = 1'b1; //
+            mdrwrite = 1'b0;
+            mloadab= 1'b0;
+            mult = 1'b0;
+            dloadab = 1'b0;
+            div = 1'b0;
+            muxhigh = 1'b0;
+            muxlow = 1'b0;
+            highwrite = 1'b0;
+            lowwrite = 1'b0;
+            dlrcontrol = 2'b00;
+            shamtcontrol =  1'b0;
+            shiftval = 1'b0;
+            shiftcontrol = 3'b000;
+            epcwrite = 1'b0;
+            alulogic = 2'b00;
+
+            nextState = INCDEC_WAIT_2;
+
+        end
+
+        INCDEC_WAIT_2: begin
+            iord = 3'b000;
+            memrw = 1'b0;
+            irwrite = 1'b0;
+            regdest = 2'b00;
+            memtoreg = 3'b000;
+            regwrite = 1'b0;
+            awrite = 1'b0;
+            bwrite = 1'b0;
+            alusrca = 2'b00; 
+            alusrcb = 3'b000;
+            aluop = 3'b000;
+            aluoutwrite = 1'b0;
+            pcsrc = 3'b000;
+            pcwrite = 1'b0;
+            pcwritecond = 1'b0;
+            dsrcontrol = 2'b00;
+            inccontrol = 1'b0;
+            mdrwrite = 1'b1;
             mloadab= 1'b0;
             mult = 1'b0;
             dloadab = 1'b0;
@@ -1946,7 +2026,7 @@ always@(*) begin
             pcwritecond = 1'b0;
             dsrcontrol = 2'b00;
             inccontrol = 1'b0;
-            mdrwrite = 1'b1; //
+            mdrwrite = 1'b0; //
             mloadab= 1'b0;
             mult = 1'b0;
             dloadab = 1'b0;
@@ -1966,6 +2046,43 @@ always@(*) begin
         end
 
         LS_WAIT: begin
+            iord = 3'b101;
+            memrw = 1'b0;
+            irwrite = 1'b0;
+            regdest = 2'b00;
+            memtoreg = 3'b000;
+            regwrite = 1'b0;
+            awrite = 1'b0;
+            bwrite = 1'b0;
+            alusrca = 2'b00; 
+            alusrcb = 3'b000;
+            aluop = 3'b000;
+            aluoutwrite = 1'b0;
+            pcsrc = 3'b000;
+            pcwrite = 1'b0;
+            pcwritecond = 1'b0;
+            dsrcontrol = 2'b00;
+            inccontrol = 1'b0;
+            mdrwrite = 1'b0; 
+            mloadab= 1'b0;
+            mult = 1'b0;
+            dloadab = 1'b0;
+            div = 1'b0;
+            muxhigh = 1'b0;
+            muxlow = 1'b0;
+            highwrite = 1'b0;
+            lowwrite = 1'b0;
+            dlrcontrol = 2'b00;
+            shamtcontrol =  1'b0;
+            shiftval = 1'b0;
+            shiftcontrol = 3'b000;
+            epcwrite = 1'b0;
+            alulogic = 2'b00;
+
+            nextState = LS_WAIT_2;
+        end
+
+        LS_WAIT_2: begin
             iord = 3'b000;
             memrw = 1'b0;
             irwrite = 1'b0;
@@ -1983,7 +2100,7 @@ always@(*) begin
             pcwritecond = 1'b0;
             dsrcontrol = 2'b00;
             inccontrol = 1'b0;
-            mdrwrite = 1'b1; //
+            mdrwrite = 1'b1;
             mloadab= 1'b0;
             mult = 1'b0;
             dloadab = 1'b0;
@@ -2010,7 +2127,7 @@ always@(*) begin
         end
 
         SB_END: begin
-            iord = 3'b000;
+            iord = 3'b101;
             memrw = 1'b1; //
             irwrite = 1'b0;
             regdest = 2'b00;
@@ -2047,7 +2164,7 @@ always@(*) begin
         end
 
         SH_END: begin
-            iord = 3'b000;
+            iord = 3'b101;
             memrw = 1'b1; //
             irwrite = 1'b0;
             regdest = 2'b00;
@@ -2084,7 +2201,7 @@ always@(*) begin
         end
 
         SW_END: begin
-            iord = 3'b000;
+            iord = 3'b101;
             memrw = 1'b1; //
             irwrite = 1'b0;
             regdest = 2'b00;
@@ -2121,7 +2238,7 @@ always@(*) begin
         end
 
         LB_END: begin
-            iord = 3'b000;
+            iord = 3'b101;
             memrw = 1'b0;
             irwrite = 1'b0;
             regdest = 2'b00;
@@ -2158,7 +2275,7 @@ always@(*) begin
         end
 
         LH_END: begin
-            iord = 3'b000;
+            iord = 3'b101;
             memrw = 1'b0;
             irwrite = 1'b0;
             regdest = 2'b00;
@@ -2195,7 +2312,7 @@ always@(*) begin
         end
 
         LW_END: begin
-            iord = 3'b000;
+            iord = 3'b101;
             memrw = 1'b0;
             irwrite = 1'b0;
             regdest = 2'b00;
@@ -2360,7 +2477,44 @@ always@(*) begin
             pcwritecond = 1'b0;
             dsrcontrol = 2'b00;
             inccontrol = 1'b0;
-            mdrwrite = 1'b1; //
+            mdrwrite = 1'b0;
+            mloadab= 1'b0;
+            mult = 1'b0;
+            dloadab = 1'b0;
+            div = 1'b0;
+            muxhigh = 1'b0;
+            muxlow = 1'b0;
+            highwrite = 1'b0;
+            lowwrite = 1'b0;
+            dlrcontrol = 2'b00;
+            shamtcontrol =  1'b0;
+            shiftval = 1'b0;
+            shiftcontrol = 3'b000;
+            epcwrite = 1'b0;
+            alulogic = 2'b00;
+
+            nextState = EXP_WAIT_2;
+        end
+
+        EXP_WAIT_2: begin
+            iord = 3'b000;
+            memrw = 1'b0;
+            irwrite = 1'b0;
+            regdest = 2'b00;
+            memtoreg = 3'b000;
+            regwrite = 1'b0;
+            awrite = 1'b0;
+            bwrite = 1'b0;
+            alusrca = 2'b00; 
+            alusrcb = 3'b000;
+            aluop = 3'b000;
+            aluoutwrite = 1'b0;
+            pcsrc = 3'b000;
+            pcwrite = 1'b0;
+            pcwritecond = 1'b0;
+            dsrcontrol = 2'b00;
+            inccontrol = 1'b0;
+            mdrwrite = 1'b1;
             mloadab= 1'b0;
             mult = 1'b0;
             dloadab = 1'b0;
@@ -2392,8 +2546,8 @@ always@(*) begin
             alusrcb = 3'b000;
             aluop = 3'b000;
             aluoutwrite = 1'b0;
-            pcsrc = 3'b010; //
-            pcwrite = 1'b1; //
+            pcsrc = 3'b010;
+            pcwrite = 1'b1; 
             pcwritecond = 1'b0;
             dsrcontrol = 2'b00;
             inccontrol = 1'b0;

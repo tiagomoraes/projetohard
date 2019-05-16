@@ -32,7 +32,7 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	wire [31:0]branch;
 	//wire [31:0]pc_out;
 	//wire [31:0]mem_adress_in;
-	wire [31:0]mem_data_in;
+	//wire [31:0]mem_data_in;
 	//wire [31:0]mem_out;
 	//wire [31:0]reg_alu_out; //fio que sai de aluout
 	wire [5:0]opcode;
@@ -339,7 +339,7 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 
 	//div
 
-	
+
 
 	//memoria
 
@@ -347,7 +347,7 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 		.Address(mem_adress_in),
 		.Clock(clk),
 		.Wr(memrw),
-		.Datain(mem_data_in),
+		.Datain(write_data_mem),
 		.Dataout(mem_out)
 	);
 
