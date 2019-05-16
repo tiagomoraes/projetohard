@@ -10,8 +10,11 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
     output reg div_zero;//deu errado -> troca por fio
 
     integer cont;
-    reg [64:0] remainder;
-    reg [31:0] quotient, divisor;
+    reg [31:0] remainder;
+    reg [63:0] divisor;
+    reg [63:0] dividend;
+    reg [63:0] diff;
+    reg [31:0] quotient;
 
     always @(posedge clk) begin
         if(reset == 1'b1) begin
@@ -21,46 +24,41 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
             div_zero = 0;//atÃ© segunda ordem Ã© assim
         end
 
-        if(div == 1'b1) begin
-            remainder = {a,33'b0};
-            divisor = {b};
-            cont = 32;
-            div_end = 1'b0;
-        end
-
-    if(divisor == 0) begin
-        div_zero = 1;
-    end
-
-    remainder = (remainder - divisor);
-
-    if(remainder >= 0) begin
-        quotient = quotient << 1;
-        quotient[0] = 1'b1;
-    end
-
-           if(remainder < 0) begin
-        remainder = (divisor + remainder);
-        quotient = quotient << 1; //Existe uma possibilidade um tanto quanto grande de termos que setar o bit 0 para 0, boa noite!
-    end
-
-    divisor = divisor >> 1;
-
-        if(cont > 0) begin
-            cont = (cont - 1);
-        end
-
-        if(cont == 0) begin
-            high = remainder[64:33];
-            low = remainder[32:1];
-            div_end = 1'b1;
-
-            // reseting
-            remainder = 65'b0;
+        if (div == 1) begin
             quotient = 32'b0;
-            divisor = 32'b0;
-            cont = -1;
+            dividend = {32'b0, a};
+            divisor = {1'b0, b, 31'b0};
+            cont = 32;
         end
+        else begin
+            diff = dividend - divisor;
+
+            quotient = quotient << 1;
+
+            if (!diff[63]) begin
+                dividend = diff;
+                quotient[0] = 1'b1;
+            end
+
+            divisor = divisor >> 1;
+            cont = cont - 1;
+
+            if (cont == 0) begin
+                low = quotient;
+                high = dividend[31:0];
+                div_end = 1'b1;
+
+                remainder = 31'b0;
+                divisor = 64'b0;
+                dividend = 64'b0;
+                quotient = 32'b0;
+                diff = 64'b0;
+                cont = -1;
+            end
+        end
+
     end
 
 endmodule
+
+//http://www.arpnjournals.org/jeas/research_papers/rp_2017/jeas_0517_6036.pdf
