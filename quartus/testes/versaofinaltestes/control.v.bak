@@ -40,7 +40,7 @@ module control(
 	output reg [2:0] shiftcontrol,
 	output reg epcwrite,
 	output reg [1:0] alulogic,
-    output reg [5:0]state;
+    output reg [5:0]state
 );
 
 parameter RESET = 6'd0;
@@ -1208,11 +1208,14 @@ always@(*) begin
             shiftcontrol = 3'b000;
             epcwrite = 1'b0;
             alulogic = 2'b00;
-
-            if (divend)
-                nextState = DIV_RESULT;
-            else 
-                nextState = DIV_CALC;
+			if (divZero)
+				nextState = DIV_EXP;
+			else begin
+				if (divend)
+					nextState = DIV_RESULT;
+				else 
+					nextState = DIV_CALC;
+			end
         end
 
         DIV_RESULT: begin

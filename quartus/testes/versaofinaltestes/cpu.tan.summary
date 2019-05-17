@@ -5,7 +5,7 @@ Timing Analyzer Summary
 Type           : Worst-case tsu
 Slack          : N/A
 Required Time  : None
-Actual Time    : 10.417 ns
+Actual Time    : 11.425 ns
 From           : reset
 To             : div:DIV|high[30]
 From Clock     : --
@@ -15,9 +15,9 @@ Failed Paths   : 0
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 15.430 ns
-From           : control:ctrl|iord[1]
-To             : mem_adress_in[16]
+Actual Time    : 13.893 ns
+From           : control:ctrl|iord[0]
+To             : mem_adress_in[12]
 From Clock     : clk
 To Clock       : --
 Failed Paths   : 0
@@ -25,9 +25,9 @@ Failed Paths   : 0
 Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : -2.389 ns
+Actual Time    : -2.478 ns
 From           : reset
-To             : div:DIV|dividend[2]
+To             : div:DIV|divisor[53]
 From Clock     : --
 To Clock       : clk
 Failed Paths   : 0
@@ -35,9 +35,9 @@ Failed Paths   : 0
 Type           : Clock Setup: 'clk'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 47.94 MHz ( period = 20.858 ns )
-From           : control:ctrl|alusrcb[1]
-To             : control:ctrl|nextState[4]
+Actual Time    : 45.88 MHz ( period = 21.794 ns )
+From           : control:ctrl|alusrca[0]
+To             : control:ctrl|nextState[5]
 From Clock     : clk
 To Clock       : clk
 Failed Paths   : 0
@@ -46,11 +46,11 @@ Type           : Clock Hold: 'clk'
 Slack          : Not operational: Clock Skew > Data Delay
 Required Time  : None
 Actual Time    : N/A
-From           : control:ctrl|state[5]
+From           : control:ctrl|state[4]
 To             : control:ctrl|nextState[4]
 From Clock     : clk
 To Clock       : clk
-Failed Paths   : 560
+Failed Paths   : 589
 
 Type           : Total number of failed paths
 Slack          : 
@@ -60,7 +60,7 @@ From           :
 To             : 
 From Clock     : 
 To Clock       : 
-Failed Paths   : 560
+Failed Paths   : 589
 
 --------------------------------------------------------------------------------------
 

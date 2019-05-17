@@ -9,7 +9,7 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
     output reg div_end;
     output reg div_zero;
 
-    integer cont;
+    integer cont = -1;
     reg flag;
     reg flagdiv;
     reg [31:0] auxa;
@@ -21,6 +21,7 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
     reg [31:0] quotient;
 
     always @(posedge clk) begin
+		div_zero = 1'b0;
         if(reset == 1'b1) begin
             flag = 1'b0;
             flagdiv = 1'b0;
@@ -34,11 +35,10 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
             high = 32'b0;
             low = 32'b0;
             div_end = 1'b0;
-            div_zero = 0;
+            div_zero = 1'b0;
         end
 
-		if (div == 1'b1) begin
-            
+		if (div == 1'b1) begin    
             if ((a[31] && b[31]) || (~a[31] && ~b[31]))
                 flag = 1'b0;
             else
@@ -62,7 +62,11 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
             quotient = 32'b0;
             dividend = {32'b0, auxa};
             divisor = {1'b0, auxb, 31'b0};
-            cont = 32;
+            
+            if (b == 32'b0)
+				div_zero = 1'b1;
+			else
+				cont = 32;
         end
         else begin
             diff = dividend - divisor;

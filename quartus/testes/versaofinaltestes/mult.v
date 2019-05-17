@@ -8,7 +8,7 @@ module mult(clk, mult, mult_end, a, b, high, low, reset);
     output reg [31:0] low;
     output reg mult_end;
 
-    integer cont;
+    integer cont = -1;
     reg [64:0] add, sub, prod;
     reg [31:0] comp;
 
@@ -17,6 +17,11 @@ module mult(clk, mult, mult_end, a, b, high, low, reset);
             high = 32'b0;
             low = 32'b0;
             mult_end = 1'b0;
+            add = 65'b0;
+            sub = 65'b0;
+            prod = 65'b0;
+            comp = 32'b0;
+            cont = -1;
         end
 
         if(mult == 1'b1) begin

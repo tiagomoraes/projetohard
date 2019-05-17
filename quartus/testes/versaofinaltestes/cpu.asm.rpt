@@ -1,5 +1,5 @@
 Assembler report for cpu
-Fri May 17 14:39:25 2019
+Fri May 17 20:41:49 2019
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -10,8 +10,8 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.sof
-  6. Assembler Device Options: C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.pof
+  5. Assembler Device Options: C:/Users/vinij/Desktop/proj_hardware/versao final teste/cpu.sof
+  6. Assembler Device Options: C:/Users/vinij/Desktop/proj_hardware/versao final teste/cpu.pof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri May 17 14:39:25 2019 ;
+; Assembler Status      ; Successful - Fri May 17 20:41:49 2019 ;
 ; Revision Name         ; cpu                                   ;
 ; Top-level Entity Name ; cpu                                   ;
 ; Family                ; Stratix II                            ;
@@ -79,37 +79,37 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+---------------------------------------------------------------------+
-; Assembler Generated Files                                           ;
-+---------------------------------------------------------------------+
-; File Name                                                           ;
-+---------------------------------------------------------------------+
-; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.sof ;
-; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.pof ;
-+---------------------------------------------------------------------+
++-----------------------------------------------------------------+
+; Assembler Generated Files                                       ;
++-----------------------------------------------------------------+
+; File Name                                                       ;
++-----------------------------------------------------------------+
+; C:/Users/vinij/Desktop/proj_hardware/versao final teste/cpu.sof ;
+; C:/Users/vinij/Desktop/proj_hardware/versao final teste/cpu.pof ;
++-----------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.sof ;
-+----------------+------------------------------------------------------------------------------+
-; Option         ; Setting                                                                      ;
-+----------------+------------------------------------------------------------------------------+
-; Device         ; EP2S15F484C3                                                                 ;
-; JTAG usercode  ; 0xFFFFFFFF                                                                   ;
-; Checksum       ; 0x006A6BE3                                                                   ;
-+----------------+------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/vinij/Desktop/proj_hardware/versao final teste/cpu.sof ;
++----------------+--------------------------------------------------------------------------+
+; Option         ; Setting                                                                  ;
++----------------+--------------------------------------------------------------------------+
+; Device         ; EP2S15F484C3                                                             ;
+; JTAG usercode  ; 0xFFFFFFFF                                                               ;
+; Checksum       ; 0x006B4A72                                                               ;
++----------------+--------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.pof ;
-+--------------------+--------------------------------------------------------------------------+
-; Option             ; Setting                                                                  ;
-+--------------------+--------------------------------------------------------------------------+
-; Device             ; EPC16                                                                    ;
-; JTAG usercode      ; 0xFFFFFFFF                                                               ;
-; Checksum           ; 0x1E1F8D4B                                                               ;
-; Compression Ratio  ; 2                                                                        ;
-+--------------------+--------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/vinij/Desktop/proj_hardware/versao final teste/cpu.pof ;
++--------------------+----------------------------------------------------------------------+
+; Option             ; Setting                                                              ;
++--------------------+----------------------------------------------------------------------+
+; Device             ; EPC16                                                                ;
+; JTAG usercode      ; 0xFFFFFFFF                                                           ;
+; Checksum           ; 0x1E216580                                                           ;
+; Compression Ratio  ; 2                                                                    ;
++--------------------+----------------------------------------------------------------------+
 
 
 +--------------------+
@@ -118,14 +118,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri May 17 14:39:22 2019
+    Info: Processing started: Fri May 17 20:41:47 2019
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off cpu -c cpu
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 268 megabytes
-    Info: Processing ended: Fri May 17 14:39:25 2019
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 276 megabytes
+    Info: Processing ended: Fri May 17 20:41:49 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 
