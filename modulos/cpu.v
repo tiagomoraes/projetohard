@@ -1,4 +1,4 @@
-module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adress_in, mem_out, mdr_out);
+module cpu (clk, reset, pc_out, reg_alu_out, mem_adress_in, mdr_out, dsr_out, dlr_out, opcode, rs, rt, epc_out);
 
 	//inputs
 
@@ -6,11 +6,14 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	input wire reset;
 	output wire [31:0]pc_out;
 	output wire [31:0]reg_alu_out;
-	output wire [15:0]imediate;
-	output wire [31:0]imediate_extend;
 	output wire [31:0]mem_adress_in;
-	output wire [31:0]mem_out;
 	output wire [31:0]mdr_out;
+	output wire [31:0]dsr_out;
+	output wire [31:0]dlr_out;
+	output wire [5:0]opcode;
+	output wire [4:0]rs;
+	output wire [4:0]rt;
+	output wire [31:0]epc_out;
 
 	parameter stack_pointer = 5'd29; // $29
 	parameter stack_top = 32'd227;
@@ -20,7 +23,7 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	parameter div_exp = 32'd255; // div0
 	parameter alu_4 = 32'd4;
 	parameter alu_1 = 32'd1;
-	parameter undefined = 32'd0; // parametro pra preecheer mux (pra os fios q ainda não estão feitos)
+	parameter undefined = 32'd0; 
 
 	//fios - ver depois os fios que vao precisar pra outras instrucoes alem do add (conferir se tudo do add ta ai)
 
@@ -30,18 +33,9 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	wire [31:0]lt_32;
 	wire [31:0]pc_in;
 	wire [31:0]branch;
-	//wire [31:0]pc_out;
-	//wire [31:0]mem_adress_in;
-	//wire [31:0]mem_data_in;
-	//wire [31:0]mem_out;
-	//wire [31:0]reg_alu_out; //fio que sai de aluout
-	wire [5:0]opcode;
-	wire [4:0]rs;
-	wire [4:0]rt;
 	wire [4:0]shift_amt;
 	wire [31:0]shift_in;
-	//wire [15:0]imediate;
-	wire [4:0]rd = imediate[15:11]; // se der merda checar se essas atriuicoes tao de boa
+	wire [4:0]rd = imediate[15:11]; 
 	wire [5:0]funct = imediate[5:0];
 	wire [31:0]incdecadr;
 	wire [25:0]instruction_26 = {rs, rt, imediate};
@@ -57,11 +51,8 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	wire [31:0]alu_in_a;
 	wire [31:0]alu_in_b;
 	wire [31:0]alu_result;
-	wire [31:0]epc_out;
 	wire [31:0]shift_out;
 	wire [31:0]imediate_lui;
-	wire [31:0]dsr_out;
-	wire [31:0]dlr_out;
 	wire [31:0]mult_high_out;
 	wire [31:0]mult_low_out;
 	wire [31:0]div_high_out;
@@ -70,7 +61,9 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 	wire [31:0]low_in;
 	wire [31:0]high_out;
 	wire [31:0]low_out;
-	//wire [31:0]imediate_extend;
+	wire [15:0]imediate;
+	wire [31:0]imediate_extend;
+	wire [31:0]mem_out;
 
 	//fios do controle
 
@@ -339,7 +332,17 @@ module cpu (clk, reset, pc_out, reg_alu_out, imediate, imediate_extend, mem_adre
 
 	//div
 
-
+	div DIV (
+		.clk(clk),
+		.reset(reset),
+		.div(dloadab),
+		.div_end(divend),
+		.div_zero(divzero),
+		.a(reg_out_a),
+		.b(reg_out_b),
+		.high(div_high_out),
+		.low(div_low_out),
+	);
 
 	//memoria
 

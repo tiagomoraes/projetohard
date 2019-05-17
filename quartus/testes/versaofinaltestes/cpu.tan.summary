@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 11.904 ns
+From           : reset
+To             : div:DIV|high[30]
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 11.426 ns
+From           : control:ctrl|state.SB_END
+To             : mem_adress_in[27]
+From Clock     : clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -2.489 ns
+From           : reset
+To             : div:DIV|div_end
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 66.65 MHz ( period = 15.004 ns )
+From           : control:ctrl|nextState.BREAK_2342
+To             : control:ctrl|state.BREAK
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clk'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : control:ctrl|state.LS_CALC
+To             : control:ctrl|nextState.LS_START_1884
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 836
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 836
+
+--------------------------------------------------------------------------------------
+

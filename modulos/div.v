@@ -11,6 +11,7 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
 
     integer cont;
     reg flag;
+    reg flagdiv;
     reg [31:0] auxa;
     reg [31:0] auxb;
     reg [31:0] remainder;
@@ -21,17 +22,32 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
 
     always @(posedge clk) begin
         if(reset == 1'b1) begin
+            flag = 1'b0;
+            flagdiv = 1'b0;
+            auxa = 32'b0;
+            auxb = 32'b0;
+            remainder = 32'b0;
+            divisor = 32'b0;
+            dividend = 32'b0;
+            diff = 32'b0;
+            quotient = 32'b0;
             high = 32'b0;
             low = 32'b0;
             div_end = 1'b0;
             div_zero = 0;
         end
 
-        if (div == 1) begin
+		if (div == 1'b1) begin
+            
             if ((a[31] && b[31]) || (~a[31] && ~b[31]))
                 flag = 1'b0;
             else
                 flag = 1'b1;
+
+            if (!a[31])
+                flagdiv = 1'b0;
+            else
+                flagdiv = 1'b1;
 
             if (a[31]) 
                 auxa = (~a + 1'b1);
@@ -41,7 +57,8 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
                 auxb = (~b + 1'b1);
             else
                 auxb = b;
-
+			
+			div_end = 1'b0;
             quotient = 32'b0;
             dividend = {32'b0, auxa};
             divisor = {1'b0, auxb, 31'b0};
@@ -62,10 +79,15 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
 
             if (cont == 0) begin
                 if (flag)
-                    quotient = (~quotient + 1'b1);
+                    low = (~quotient + 1'b1);
+                else
+                    low = quotient;
                 
-                low = quotient;
-                high = dividend[31:0];
+                if (flagdiv)
+                    high = (~dividend[31:0] + 1'b1);
+                else
+                    high = dividend[31:0];
+                
                 div_end = 1'b1;
 
                 remainder = 31'b0;

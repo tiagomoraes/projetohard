@@ -1,0 +1,1173 @@
+Analysis & Synthesis report for cpu
+Fri May 17 11:47:07 2019
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |cpu|control:ctrl|state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 15. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 16. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 17. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 18. Parameter Settings for User Entity Instance: Top-level Entity: |cpu
+ 19. Parameter Settings for User Entity Instance: control:ctrl
+ 20. Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM
+ 21. Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM_plus_One
+ 22. Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM_plus_Two
+ 23. Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM_plus_Three
+ 24. Port Connectivity Checks: "Ula32:alu"
+ 25. Port Connectivity Checks: "mux32_8x1:mux_pcsrc"
+ 26. Port Connectivity Checks: "mux32_8x1:mux_alusrcb"
+ 27. Port Connectivity Checks: "mux32_4x1:mux_alusrca"
+ 28. Port Connectivity Checks: "mux32_8x1:mux_memtoreg"
+ 29. Port Connectivity Checks: "mux5_4x1:mux_regdest"
+ 30. Port Connectivity Checks: "mux32_8x1:mux_iord"
+ 31. Port Connectivity Checks: "control:ctrl"
+ 32. Analysis & Synthesis Messages
+ 33. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++-------------------------------+----------------------------------------------+
+; Analysis & Synthesis Status   ; Successful - Fri May 17 11:47:07 2019        ;
+; Quartus II Version            ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
+; Revision Name                 ; cpu                                          ;
+; Top-level Entity Name         ; cpu                                          ;
+; Family                        ; Stratix II                                   ;
+; Logic utilization             ; N/A                                          ;
+;     Combinational ALUTs       ; 2,666                                        ;
+;     Dedicated logic registers ; 1,885                                        ;
+; Total registers               ; 1885                                         ;
+; Total pins                    ; 242                                          ;
+; Total virtual pins            ; 0                                            ;
+; Total block memory bits       ; 8,192                                        ;
+; DSP block 9-bit elements      ; 0                                            ;
+; Total PLLs                    ; 0                                            ;
+; Total DLLs                    ; 0                                            ;
++-------------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; cpu                ; cpu                ;
+; Family name                                                                ; Stratix II         ; Stratix II         ;
+; Use Generated Physical Constraints File                                    ; Off                ;                    ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                 ;
++----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                   ;
++----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------+
+; instrucoes.mif                   ; yes             ; User Memory Initialization File  ; C:/Users/vdj/Desktop/adasdsa/quartus/instrucoes.mif                            ;
+; Banco_reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/Banco_reg.vhd                             ;
+; control.v                        ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/control.v                                 ;
+; cpu.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/cpu.v                                     ;
+; div.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/div.v                                     ;
+; dlr.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/dlr.v                                     ;
+; dsr.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/dsr.v                                     ;
+; Instr_Reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/Instr_Reg.vhd                             ;
+; Memoria.vhd                      ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/Memoria.vhd                               ;
+; mult.v                           ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mult.v                                    ;
+; mux1_4x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux1_4x1.v                                ;
+; mux32_2x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux32_2x1.v                               ;
+; mux32_4x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux32_4x1.v                               ;
+; mux32_8x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux32_8x1.v                               ;
+; mux5_2x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux5_2x1.v                                ;
+; mux5_4x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux5_4x1.v                                ;
+; RegDesloc.vhd                    ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/RegDesloc.vhd                             ;
+; Registrador.vhd                  ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/Registrador.vhd                           ;
+; shiftleft16_16_32.v              ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/shiftleft16_16_32.v                       ;
+; shiftleft2_26_28.v               ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/shiftleft2_26_28.v                        ;
+; shiftleft2_32_32.v               ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/shiftleft2_32_32.v                        ;
+; signextend16_32.v                ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/signextend16_32.v                         ;
+; signextend1_32.v                 ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/signextend1_32.v                          ;
+; ula32.vhd                        ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/ula32.vhd                                 ;
+; unsignextend26_32.v              ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/unsignextend26_32.v                       ;
+; lpm_ram_dq.tdf                   ; yes             ; Megafunction                     ; c:/programfiles/altera/quartus9/quartus/libraries/megafunctions/lpm_ram_dq.tdf ;
+; altram.tdf                       ; yes             ; Megafunction                     ; c:/programfiles/altera/quartus9/quartus/libraries/megafunctions/altram.tdf     ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/programfiles/altera/quartus9/quartus/libraries/megafunctions/altsyncram.tdf ;
+; db/altsyncram_g2a1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/vdj/Desktop/adasdsa/quartus/db/altsyncram_g2a1.tdf                    ;
++----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++-----------------------------------------------+-------+
+; Resource                                      ; Usage ;
++-----------------------------------------------+-------+
+; Estimated ALUTs Used                          ; 2666  ;
+; Dedicated logic registers                     ; 1885  ;
+;                                               ;       ;
+; Estimated ALUTs Unavailable                   ; 487   ;
+;                                               ;       ;
+; Total combinational functions                 ; 2666  ;
+; Combinational ALUT usage by number of inputs  ;       ;
+;     -- 7 input functions                      ; 10    ;
+;     -- 6 input functions                      ; 1245  ;
+;     -- 5 input functions                      ; 309   ;
+;     -- 4 input functions                      ; 226   ;
+;     -- <=3 input functions                    ; 876   ;
+;                                               ;       ;
+; Combinational ALUTs by mode                   ;       ;
+;     -- normal mode                            ; 2311  ;
+;     -- extended LUT mode                      ; 10    ;
+;     -- arithmetic mode                        ; 345   ;
+;     -- shared arithmetic mode                 ; 0     ;
+;                                               ;       ;
+; Estimated ALUT/register pairs used            ; 4113  ;
+;                                               ;       ;
+; Total registers                               ; 1885  ;
+;     -- Dedicated logic registers              ; 1885  ;
+;     -- I/O registers                          ; 0     ;
+;                                               ;       ;
+; Estimated ALMs:  partially or completely used ; 2,057 ;
+;                                               ;       ;
+; I/O pins                                      ; 242   ;
+; Total block memory bits                       ; 8192  ;
+; Maximum fan-out node                          ; clk   ;
+; Maximum fan-out                               ; 1917  ;
+; Total fan-out                                 ; 20443 ;
+; Average fan-out                               ; 4.24  ;
++-----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                          ;
++-------------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                           ; Library Name ;
++-------------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+--------------+
+; |cpu                                            ; 2666 (2)          ; 1885 (0)     ; 8192              ; 0            ; 0       ; 0         ; 0         ; 242  ; 0            ; |cpu                                                                                                          ; work         ;
+;    |Banco_reg:bancoreg|                         ; 736 (736)         ; 1024 (1024)  ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Banco_reg:bancoreg                                                                                       ; work         ;
+;    |Instr_Reg:ir|                               ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Instr_Reg:ir                                                                                             ; work         ;
+;    |Memoria:memory|                             ; 23 (23)           ; 0 (0)        ; 8192              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory                                                                                           ; work         ;
+;       |lpm_ram_dq:MEM_plus_One|                 ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One                                                                   ; work         ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram                                                       ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block                                  ; work         ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated   ; work         ;
+;       |lpm_ram_dq:MEM_plus_Three|               ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three                                                                 ;              ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram                                                     ;              ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block                                ;              ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;              ;
+;       |lpm_ram_dq:MEM_plus_Two|                 ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two                                                                   ;              ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram                                                       ;              ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block                                  ;              ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated   ;              ;
+;       |lpm_ram_dq:MEM|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM                                                                            ; work         ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM|altram:sram                                                                ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block                                           ;              ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated            ; work         ;
+;    |RegDesloc:shift_reg|                        ; 325 (325)         ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|RegDesloc:shift_reg                                                                                      ; work         ;
+;    |Registrador:aluout|                         ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:aluout                                                                                       ; work         ;
+;    |Registrador:epc|                            ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:epc                                                                                          ; work         ;
+;    |Registrador:high|                           ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:high                                                                                         ; work         ;
+;    |Registrador:low|                            ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:low                                                                                          ; work         ;
+;    |Registrador:mdr|                            ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:mdr                                                                                          ; work         ;
+;    |Registrador:pc|                             ; 3 (3)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:pc                                                                                           ; work         ;
+;    |Registrador:rega|                           ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:rega                                                                                         ; work         ;
+;    |Registrador:regb|                           ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:regb                                                                                         ; work         ;
+;    |Ula32:alu|                                  ; 159 (159)         ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Ula32:alu                                                                                                ; work         ;
+;    |control:ctrl|                               ; 220 (220)         ; 62 (62)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|control:ctrl                                                                                             ;              ;
+;    |div:DIV|                                    ; 463 (463)         ; 256 (256)    ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|div:DIV                                                                                                  ; work         ;
+;    |dlr:DLR|                                    ; 25 (25)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|dlr:DLR                                                                                                  ; work         ;
+;    |dsr:DSR|                                    ; 24 (24)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|dsr:DSR                                                                                                  ; work         ;
+;    |mult:MULT|                                  ; 375 (375)         ; 223 (223)    ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mult:MULT                                                                                                ; work         ;
+;    |mux1_4x1:mux_alulogic|                      ; 4 (4)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux1_4x1:mux_alulogic                                                                                    ; work         ;
+;    |mux32_2x1:mux_inc|                          ; 32 (32)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux32_2x1:mux_inc                                                                                        ; work         ;
+;    |mux32_2x1:mux_shiftval|                     ; 5 (5)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux32_2x1:mux_shiftval                                                                                   ; work         ;
+;    |mux32_4x1:mux_alusrca|                      ; 34 (34)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux32_4x1:mux_alusrca                                                                                    ; work         ;
+;    |mux32_8x1:mux_alusrcb|                      ; 36 (36)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux32_8x1:mux_alusrcb                                                                                    ; work         ;
+;    |mux32_8x1:mux_iord|                         ; 33 (33)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux32_8x1:mux_iord                                                                                       ; work         ;
+;    |mux32_8x1:mux_memtoreg|                     ; 68 (68)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux32_8x1:mux_memtoreg                                                                                   ; work         ;
+;    |mux32_8x1:mux_pcsrc|                        ; 89 (89)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux32_8x1:mux_pcsrc                                                                                      ; work         ;
+;    |mux5_2x1:mux_shamtcontrol|                  ; 5 (5)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux5_2x1:mux_shamtcontrol                                                                                ; work         ;
+;    |mux5_4x1:mux_regdest|                       ; 5 (5)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux5_4x1:mux_regdest                                                                                     ; work         ;
++-------------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                             ;
++---------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+; Name                                                                                                                ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF            ;
++---------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+; Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:memory|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM            ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
++---------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |cpu|control:ctrl|state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++----------------------+------------------+-----------------+---------------------+--------------+-----------------+----------------+---------------+---------------+----------------+--------------+--------------+--------------+--------------+--------------+--------------+---------------+----------------+---------------+------------+-----------+-----------+-----------+-----------+-----------+-----------------+------------+-------------+-----------------+--------------+--------------+-------------------+--------------+---------+----------------------+-----------+------------------+----------------+----------------+-------------------+-----------------+-----------------+-------------+-----------+----------+-----------+------------+------------+---------------------+------------+------------+-----------------+-----------+-----------+-----------+-------------------+--------------------+-----------+-----------+-----------+--------------+------------+-------------+-------------+
+; Name                 ; state.EXP_WAIT_2 ; state.LS_WAIT_2 ; state.INCDEC_WAIT_2 ; state.WAIT_2 ; state.EXP_WRITE ; state.EXP_WAIT ; state.NOPCODE ; state.DIVZERO ; state.OVERFLOW ; state.LW_END ; state.LH_END ; state.LB_END ; state.SW_END ; state.SH_END ; state.SB_END ; state.LS_WAIT ; state.LS_START ; state.LS_CALC ; state.SLTI ; state.LUI ; state.BGT ; state.BLE ; state.BNE ; state.BEQ ; state.REG_WRITE ; state.ADDI ; state.ADDIU ; state.INCDEC_ST ; state.INC_OP ; state.DEC_OP ; state.INCDEC_WAIT ; state.INCDEC ; state.J ; state.RETURN_ADDRESS ; state.JAL ; state.DIV_RESULT ; state.DIV_CALC ; state.DIV_LOAD ; state.MULT_RESULT ; state.MULT_CALC ; state.MULT_LOAD ; state.BREAK ; state.RTE ; state.JR ; state.SLT ; state.MFLO ; state.MFHI ; state.WRITERD_SHIFT ; state.SRAV ; state.SLLV ; state.SHIFT_REG ; state.SRL ; state.SRA ; state.SLL ; state.SHIFT_SHAMT ; state.WRITERD_ARIT ; state.SUB ; state.AND ; state.ADD ; state.DECODE ; state.WAIT ; state.FETCH ; state.RESET ;
++----------------------+------------------+-----------------+---------------------+--------------+-----------------+----------------+---------------+---------------+----------------+--------------+--------------+--------------+--------------+--------------+--------------+---------------+----------------+---------------+------------+-----------+-----------+-----------+-----------+-----------+-----------------+------------+-------------+-----------------+--------------+--------------+-------------------+--------------+---------+----------------------+-----------+------------------+----------------+----------------+-------------------+-----------------+-----------------+-------------+-----------+----------+-----------+------------+------------+---------------------+------------+------------+-----------------+-----------+-----------+-----------+-------------------+--------------------+-----------+-----------+-----------+--------------+------------+-------------+-------------+
+; state.RESET          ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 0           ;
+; state.FETCH          ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 1           ; 1           ;
+; state.WAIT           ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 1          ; 0           ; 1           ;
+; state.DECODE         ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 1            ; 0          ; 0           ; 1           ;
+; state.ADD            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 1         ; 0            ; 0          ; 0           ; 1           ;
+; state.AND            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 1         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SUB            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 1         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.WRITERD_ARIT   ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 1                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SHIFT_SHAMT    ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 1                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SLL            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 1         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SRA            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 1         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SRL            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 1         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SHIFT_REG      ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 1               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SLLV           ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 1          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SRAV           ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 1          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.WRITERD_SHIFT  ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 1                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.MFHI           ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 1          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.MFLO           ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 1          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SLT            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 1         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.JR             ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 1        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.RTE            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 1         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.BREAK          ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 1           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.MULT_LOAD      ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 1               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.MULT_CALC      ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 1               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.MULT_RESULT    ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 1                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.DIV_LOAD       ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 1              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.DIV_CALC       ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 1              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.DIV_RESULT     ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 1                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.JAL            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 1         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.RETURN_ADDRESS ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 1                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.J              ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 1       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.INCDEC         ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 1            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.INCDEC_WAIT    ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 1                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.DEC_OP         ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 1            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.INC_OP         ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 1            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.INCDEC_ST      ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 1               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.ADDIU          ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 1           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.ADDI           ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 1          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.REG_WRITE      ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 1               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.BEQ            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 1         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.BNE            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 1         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.BLE            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 1         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.BGT            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 1         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.LUI            ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 1         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SLTI           ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 1          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.LS_CALC        ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 1             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.LS_START       ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 1              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.LS_WAIT        ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SB_END         ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SH_END         ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.SW_END         ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.LB_END         ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.LH_END         ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.LW_END         ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.OVERFLOW       ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 1              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.DIVZERO        ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 1             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.NOPCODE        ; 0                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 1             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.EXP_WAIT       ; 0                ; 0               ; 0                   ; 0            ; 0               ; 1              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.EXP_WRITE      ; 0                ; 0               ; 0                   ; 0            ; 1               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.WAIT_2         ; 0                ; 0               ; 0                   ; 1            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.INCDEC_WAIT_2  ; 0                ; 0               ; 1                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.LS_WAIT_2      ; 0                ; 1               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
+; state.EXP_WAIT_2     ; 1                ; 0               ; 0                   ; 0            ; 0               ; 0              ; 0             ; 0             ; 0              ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0             ; 0              ; 0             ; 0          ; 0         ; 0         ; 0         ; 0         ; 0         ; 0               ; 0          ; 0           ; 0               ; 0            ; 0            ; 0                 ; 0            ; 0       ; 0                    ; 0         ; 0                ; 0              ; 0              ; 0                 ; 0               ; 0               ; 0           ; 0         ; 0        ; 0         ; 0          ; 0          ; 0                   ; 0          ; 0          ; 0               ; 0         ; 0         ; 0         ; 0                 ; 0                  ; 0         ; 0         ; 0         ; 0            ; 0          ; 0           ; 1           ;
++----------------------+------------------+-----------------+---------------------+--------------+-----------------+----------------+---------------+---------------+----------------+--------------+--------------+--------------+--------------+--------------+--------------+---------------+----------------+---------------+------------+-----------+-----------+-----------+-----------+-----------+-----------------+------------+-------------+-----------------+--------------+--------------+-------------------+--------------+---------+----------------------+-----------+------------------+----------------+----------------+-------------------+-----------------+-----------------+-------------+-----------+----------+-----------+------------+------------+---------------------+------------+------------+-----------------+-----------+-----------+-----------+-------------------+--------------------+-----------+-----------+-----------+--------------+------------+-------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                     ;
++-----------------------------------------------------+--------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal      ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------+------------------------+
+; control:ctrl|nextState.LS_START_1884                ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.LS_WAIT_1866                 ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.SB_END_1848                  ; control:ctrl|Selector47  ; yes                    ;
+; control:ctrl|nextState.SH_END_1828                  ; control:ctrl|Selector47  ; yes                    ;
+; control:ctrl|nextState.SW_END_1808                  ; control:ctrl|Selector47  ; yes                    ;
+; control:ctrl|nextState.LB_END_1788                  ; control:ctrl|Selector47  ; yes                    ;
+; control:ctrl|nextState.LH_END_1768                  ; control:ctrl|Selector47  ; yes                    ;
+; control:ctrl|nextState.LW_END_1748                  ; control:ctrl|Selector47  ; yes                    ;
+; control:ctrl|nextState.OVERFLOW_1728                ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.NOPCODE_1710                 ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.INCDEC_2156                  ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.INCDEC_ST_2082               ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.JR_2382                      ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.BEQ_2010                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.BNE_1992                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.BLE_1974                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.BGT_1956                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.RTE_2362                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.JAL_2210                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.J_2174                       ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.EXP_WRITE_1674               ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.AND_2656                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.SUB_2636                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.SLT_2402                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.BREAK_2342                   ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.DEC_OP_2120                  ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.SLTI_1920                    ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.INC_OP_2101                  ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.ADDIU_2064                   ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.ADDI_2046                    ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.LS_CALC_1902                 ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.FETCH_2730                   ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.DECODE_2694                  ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.ADD_2676                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.WAIT_2_1656                  ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.INCDEC_WAIT_2_1638           ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.LS_WAIT_2_1620               ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.EXP_WAIT_2_1602              ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.SHIFT_REG_2518               ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.SHIFT_SHAMT_2598             ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.WRITERD_ARIT_2616            ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.MFHI_2442                    ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.RETURN_ADDRESS_2192          ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.REG_WRITE_2028               ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.MFLO_2422                    ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.LUI_1938                     ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.WRITERD_SHIFT_2460           ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.MULT_RESULT_2284             ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.DIV_RESULT_2228              ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.WAIT_2712                    ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.INCDEC_WAIT_2138             ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.EXP_WAIT_1692                ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.SLLV_2498                    ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.SRAV_2479                    ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.SRL_2538                     ; control:ctrl|Selector179 ; yes                    ;
+; control:ctrl|nextState.SLL_2578                     ; control:ctrl|Selector179 ; yes                    ;
+; control:ctrl|nextState.SRA_2558                     ; control:ctrl|Selector179 ; yes                    ;
+; control:ctrl|nextState.DIV_LOAD_2266                ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.MULT_LOAD_2322               ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.MULT_CALC_2302               ; control:ctrl|Selector43  ; yes                    ;
+; control:ctrl|nextState.DIV_CALC_2246                ; control:ctrl|Selector43  ; yes                    ;
+; Number of user-specified and inferred latches = 61  ;                          ;                        ;
++-----------------------------------------------------+--------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                  ;
++--------------------------------------------+----------------------------------------+
+; Register name                              ; Reason for Removal                     ;
++--------------------------------------------+----------------------------------------+
+; div:DIV|divisor[63]                        ; Stuck at GND due to stuck port data_in ;
+; mult:MULT|sub[2,11]                        ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|add[0,4]                         ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|sub[15]                          ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|add[8,12,16,20,24,32]            ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|sub[1,5,7,9]                     ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|add[1]                           ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|sub[13]                          ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|add[7,11,13,19,25]               ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|sub[12]                          ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|add[9,23,29,31]                  ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|sub[17..18,20,22,24,26,28,30,32] ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|add[26]                          ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|sub[27]                          ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|add[5,10]                        ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|sub[8,19]                        ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|add[2,18]                        ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|sub[3]                           ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|add[21]                          ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|sub[10,14,23,31]                 ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|add[6,14]                        ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|sub[16]                          ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|add[3,15,17,22,27..28,30]        ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|sub[0,21,25,29]                  ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|prod[63]                         ; Merged with mult:MULT|prod[64]         ;
+; mult:MULT|sub[4]                           ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|high[31]                         ; Merged with mult:MULT|high[30]         ;
+; div:DIV|dividend[63]                       ; Stuck at GND due to stuck port data_in ;
+; mult:MULT|sub[6]                           ; Stuck at GND due to stuck port data_in ;
+; mult:MULT|add[33]                          ; Merged with mult:MULT|sub[33]          ;
+; control:ctrl|state.DIVZERO                 ; Lost fanout                            ;
+; control:ctrl|state~4                       ; Lost fanout                            ;
+; control:ctrl|state~5                       ; Lost fanout                            ;
+; control:ctrl|state~6                       ; Lost fanout                            ;
+; control:ctrl|state~7                       ; Lost fanout                            ;
+; control:ctrl|state~8                       ; Lost fanout                            ;
+; control:ctrl|state~9                       ; Lost fanout                            ;
+; Total Number of Removed Registers = 78     ;                                        ;
++--------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1885  ;
+; Number of registers using Synchronous Clear  ; 467   ;
+; Number of registers using Synchronous Load   ; 99    ;
+; Number of registers using Asynchronous Clear ; 1406  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1465  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; 3:1                ; 63 bits   ; 126 ALUTs     ; 0 ALUTs              ; 126 ALUTs              ; Yes        ; |cpu|mult:MULT|low[17]              ;
+; 3:1                ; 93 bits   ; 186 ALUTs     ; 93 ALUTs             ; 93 ALUTs               ; Yes        ; |cpu|div:DIV|cont[10]               ;
+; 4:1                ; 31 bits   ; 62 ALUTs      ; 62 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|div:DIV|divisor[39]            ;
+; 4:1                ; 31 bits   ; 62 ALUTs      ; 62 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|div:DIV|dividend[0]            ;
+; 4:1                ; 31 bits   ; 62 ALUTs      ; 31 ALUTs             ; 31 ALUTs               ; Yes        ; |cpu|div:DIV|dividend[42]           ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 32 ALUTs             ; 32 ALUTs               ; Yes        ; |cpu|div:DIV|low[21]                ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |cpu|div:DIV|high[10]               ;
+; 32:1               ; 32 bits   ; 672 ALUTs     ; 672 ALUTs            ; 0 ALUTs                ; Yes        ; |cpu|Registrador:regb|Saida[5]      ;
+; 32:1               ; 32 bits   ; 672 ALUTs     ; 672 ALUTs            ; 0 ALUTs                ; Yes        ; |cpu|Registrador:rega|Saida[3]      ;
+; 7:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; Yes        ; |cpu|Registrador:pc|Saida[1]        ;
+; 7:1                ; 4 bits    ; 16 ALUTs      ; 16 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|Registrador:pc|Saida[28]       ;
+; 7:1                ; 26 bits   ; 104 ALUTs     ; 104 ALUTs            ; 0 ALUTs                ; Yes        ; |cpu|Registrador:pc|Saida[8]        ;
+; 14:1               ; 13 bits   ; 117 ALUTs     ; 78 ALUTs             ; 39 ALUTs               ; Yes        ; |cpu|RegDesloc:shift_reg|temp[13]   ;
+; 14:1               ; 13 bits   ; 117 ALUTs     ; 78 ALUTs             ; 39 ALUTs               ; Yes        ; |cpu|RegDesloc:shift_reg|temp[29]   ;
+; 3:1                ; 8 bits    ; 16 ALUTs      ; 8 ALUTs              ; 8 ALUTs                ; No         ; |cpu|dsr:DSR|out[11]                ;
+; 3:1                ; 8 bits    ; 16 ALUTs      ; 8 ALUTs              ; 8 ALUTs                ; No         ; |cpu|dlr:DLR|out[12]                ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 64 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_4x1:mux_alusrca|out[23]  ;
+; 3:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux5_4x1:mux_regdest|out[0]    ;
+; 5:1                ; 2 bits    ; 6 ALUTs       ; 6 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[1]   ;
+; 4:1                ; 15 bits   ; 30 ALUTs      ; 30 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[20]  ;
+; 8:1                ; 32 bits   ; 160 ALUTs     ; 64 ALUTs             ; 96 ALUTs               ; No         ; |cpu|Ula32:alu|Mux55                ;
+; 8:1                ; 32 bits   ; 160 ALUTs     ; 128 ALUTs            ; 32 ALUTs               ; No         ; |cpu|Ula32:alu|Mux10                ;
+; 6:1                ; 6 bits    ; 24 ALUTs      ; 18 ALUTs             ; 6 ALUTs                ; No         ; |cpu|mux32_8x1:mux_iord|out[30]     ;
+; 6:1                ; 24 bits   ; 96 ALUTs      ; 96 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_iord|out[20]     ;
+; 6:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_iord|out[0]      ;
+; 7:1                ; 13 bits   ; 52 ALUTs      ; 52 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[5]   ;
+; 6:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[15]  ;
+; 7:1                ; 11 bits   ; 44 ALUTs      ; 44 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_memtoreg|out[2]  ;
+; 7:1                ; 4 bits    ; 16 ALUTs      ; 16 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_memtoreg|out[6]  ;
+; 8:1                ; 16 bits   ; 80 ALUTs      ; 64 ALUTs             ; 16 ALUTs               ; No         ; |cpu|mux32_8x1:mux_memtoreg|out[26] ;
+; 6:1                ; 3 bits    ; 12 ALUTs      ; 12 ALUTs             ; 0 ALUTs                ; No         ; |cpu|control:ctrl|Selector189       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                     ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                      ;
++---------------------------------+--------------------+------+--------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                              ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                               ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                              ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                               ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                ;
++---------------------------------+--------------------+------+-------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                 ;
++---------------------------------+--------------------+------+-------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |cpu ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; stack_pointer  ; 11101                            ; Unsigned Binary ;
+; stack_top      ; 00000000000000000000000011100011 ; Unsigned Binary ;
+; return_adress  ; 11111                            ; Unsigned Binary ;
+; opcode_exp     ; 00000000000000000000000011111101 ; Unsigned Binary ;
+; over_exp       ; 00000000000000000000000011111110 ; Unsigned Binary ;
+; div_exp        ; 00000000000000000000000011111111 ; Unsigned Binary ;
+; alu_4          ; 00000000000000000000000000000100 ; Unsigned Binary ;
+; alu_1          ; 00000000000000000000000000000001 ; Unsigned Binary ;
+; undefined      ; 00000000000000000000000000000000 ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: control:ctrl ;
++----------------+--------+---------------------------------+
+; Parameter Name ; Value  ; Type                            ;
++----------------+--------+---------------------------------+
+; RESET          ; 000000 ; Unsigned Binary                 ;
+; FETCH          ; 000001 ; Unsigned Binary                 ;
+; WAIT           ; 000010 ; Unsigned Binary                 ;
+; DECODE         ; 000011 ; Unsigned Binary                 ;
+; ADD            ; 000100 ; Unsigned Binary                 ;
+; AND            ; 000101 ; Unsigned Binary                 ;
+; SUB            ; 000110 ; Unsigned Binary                 ;
+; WRITERD_ARIT   ; 000111 ; Unsigned Binary                 ;
+; SHIFT_SHAMT    ; 001000 ; Unsigned Binary                 ;
+; SLL            ; 001001 ; Unsigned Binary                 ;
+; SRA            ; 001010 ; Unsigned Binary                 ;
+; SRL            ; 001011 ; Unsigned Binary                 ;
+; SHIFT_REG      ; 001100 ; Unsigned Binary                 ;
+; SLLV           ; 001101 ; Unsigned Binary                 ;
+; SRAV           ; 001110 ; Unsigned Binary                 ;
+; WRITERD_SHIFT  ; 001111 ; Unsigned Binary                 ;
+; MFHI           ; 010000 ; Unsigned Binary                 ;
+; MFLO           ; 010001 ; Unsigned Binary                 ;
+; SLT            ; 010010 ; Unsigned Binary                 ;
+; JR             ; 010011 ; Unsigned Binary                 ;
+; RTE            ; 010100 ; Unsigned Binary                 ;
+; BREAK          ; 010101 ; Unsigned Binary                 ;
+; MULT_LOAD      ; 010110 ; Unsigned Binary                 ;
+; MULT_CALC      ; 010111 ; Unsigned Binary                 ;
+; MULT_RESULT    ; 011000 ; Unsigned Binary                 ;
+; DIV_LOAD       ; 011001 ; Unsigned Binary                 ;
+; DIV_CALC       ; 011010 ; Unsigned Binary                 ;
+; DIV_RESULT     ; 011011 ; Unsigned Binary                 ;
+; JAL            ; 011100 ; Unsigned Binary                 ;
+; RETURN_ADDRESS ; 011101 ; Unsigned Binary                 ;
+; J              ; 011110 ; Unsigned Binary                 ;
+; INCDEC         ; 011111 ; Unsigned Binary                 ;
+; INCDEC_WAIT    ; 100000 ; Unsigned Binary                 ;
+; DEC_OP         ; 100001 ; Unsigned Binary                 ;
+; INC_OP         ; 100010 ; Unsigned Binary                 ;
+; INCDEC_ST      ; 100011 ; Unsigned Binary                 ;
+; ADDIU          ; 100100 ; Unsigned Binary                 ;
+; ADDI           ; 100101 ; Unsigned Binary                 ;
+; REG_WRITE      ; 100110 ; Unsigned Binary                 ;
+; BEQ            ; 100111 ; Unsigned Binary                 ;
+; BNE            ; 101000 ; Unsigned Binary                 ;
+; BLE            ; 101001 ; Unsigned Binary                 ;
+; BGT            ; 101010 ; Unsigned Binary                 ;
+; LUI            ; 101011 ; Unsigned Binary                 ;
+; SLTI           ; 101100 ; Unsigned Binary                 ;
+; LS_CALC        ; 101101 ; Unsigned Binary                 ;
+; LS_START       ; 101110 ; Unsigned Binary                 ;
+; LS_WAIT        ; 101111 ; Unsigned Binary                 ;
+; SB_END         ; 110000 ; Unsigned Binary                 ;
+; SH_END         ; 110001 ; Unsigned Binary                 ;
+; SW_END         ; 110010 ; Unsigned Binary                 ;
+; LB_END         ; 110011 ; Unsigned Binary                 ;
+; LH_END         ; 110100 ; Unsigned Binary                 ;
+; LW_END         ; 110101 ; Unsigned Binary                 ;
+; OVERFLOW       ; 110110 ; Unsigned Binary                 ;
+; DIVZERO        ; 110111 ; Unsigned Binary                 ;
+; NOPCODE        ; 111000 ; Unsigned Binary                 ;
+; EXP_WAIT       ; 111001 ; Unsigned Binary                 ;
+; EXP_WRITE      ; 111010 ; Unsigned Binary                 ;
+; WAIT_2         ; 111011 ; Unsigned Binary                 ;
+; INCDEC_WAIT_2  ; 111100 ; Unsigned Binary                 ;
+; LS_WAIT_2      ; 111101 ; Unsigned Binary                 ;
+; EXP_WAIT_2     ; 111110 ; Unsigned Binary                 ;
++----------------+--------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM ;
++------------------------+----------------+----------------------------------+
+; Parameter Name         ; Value          ; Type                             ;
++------------------------+----------------+----------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                   ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                   ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                   ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                          ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                          ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                          ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                          ;
+; USE_EAB                ; ON             ; Untyped                          ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                          ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                   ;
++------------------------+----------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM_plus_One ;
++------------------------+----------------+-------------------------------------------+
+; Parameter Name         ; Value          ; Type                                      ;
++------------------------+----------------+-------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                            ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                            ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                            ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                   ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                   ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                   ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                   ;
+; USE_EAB                ; ON             ; Untyped                                   ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                                   ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                   ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                            ;
++------------------------+----------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM_plus_Two ;
++------------------------+----------------+-------------------------------------------+
+; Parameter Name         ; Value          ; Type                                      ;
++------------------------+----------------+-------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                            ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                            ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                            ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                   ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                   ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                   ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                   ;
+; USE_EAB                ; ON             ; Untyped                                   ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                                   ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                   ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                            ;
++------------------------+----------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM_plus_Three ;
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                              ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                              ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                              ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                     ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                     ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                     ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                     ;
+; USE_EAB                ; ON             ; Untyped                                     ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                                     ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Ula32:alu"                                                                                                   ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; negativo ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; z        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "mux32_8x1:mux_pcsrc" ;
++------+-------+----------+-----------------------+
+; Port ; Type  ; Severity ; Details               ;
++------+-------+----------+-----------------------+
+; g    ; Input ; Info     ; Stuck at GND          ;
+; h    ; Input ; Info     ; Stuck at GND          ;
++------+-------+----------+-----------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "mux32_8x1:mux_alusrcb" ;
++----------+-------+----------+---------------------+
+; Port     ; Type  ; Severity ; Details             ;
++----------+-------+----------+---------------------+
+; b[31..1] ; Input ; Info     ; Stuck at GND        ;
+; b[0]     ; Input ; Info     ; Stuck at VCC        ;
+; c[31..3] ; Input ; Info     ; Stuck at GND        ;
+; c[1..0]  ; Input ; Info     ; Stuck at GND        ;
+; c[2]     ; Input ; Info     ; Stuck at VCC        ;
+; f        ; Input ; Info     ; Stuck at GND        ;
+; g        ; Input ; Info     ; Stuck at GND        ;
+; h        ; Input ; Info     ; Stuck at GND        ;
++----------+-------+----------+---------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "mux32_4x1:mux_alusrca" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; d    ; Input ; Info     ; Stuck at GND            ;
++------+-------+----------+-------------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "mux32_8x1:mux_memtoreg" ;
++----------+-------+----------+----------------------+
+; Port     ; Type  ; Severity ; Details              ;
++----------+-------+----------+----------------------+
+; a[7..5]  ; Input ; Info     ; Stuck at VCC         ;
+; a[1..0]  ; Input ; Info     ; Stuck at VCC         ;
+; a[31..8] ; Input ; Info     ; Stuck at GND         ;
+; a[4..2]  ; Input ; Info     ; Stuck at GND         ;
++----------+-------+----------+----------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "mux5_4x1:mux_regdest" ;
++---------+-------+----------+---------------------+
+; Port    ; Type  ; Severity ; Details             ;
++---------+-------+----------+---------------------+
+; c       ; Input ; Info     ; Stuck at VCC        ;
+; d[4..2] ; Input ; Info     ; Stuck at VCC        ;
+; d[1]    ; Input ; Info     ; Stuck at GND        ;
+; d[0]    ; Input ; Info     ; Stuck at VCC        ;
++---------+-------+----------+---------------------+
+
+
++------------------------------------------------+
+; Port Connectivity Checks: "mux32_8x1:mux_iord" ;
++----------+-------+----------+------------------+
+; Port     ; Type  ; Severity ; Details          ;
++----------+-------+----------+------------------+
+; c[7..2]  ; Input ; Info     ; Stuck at VCC     ;
+; c[31..8] ; Input ; Info     ; Stuck at GND     ;
+; c[1]     ; Input ; Info     ; Stuck at GND     ;
+; c[0]     ; Input ; Info     ; Stuck at VCC     ;
+; d[7..1]  ; Input ; Info     ; Stuck at VCC     ;
+; d[31..8] ; Input ; Info     ; Stuck at GND     ;
+; d[0]     ; Input ; Info     ; Stuck at GND     ;
+; e[7..0]  ; Input ; Info     ; Stuck at VCC     ;
+; e[31..8] ; Input ; Info     ; Stuck at GND     ;
+; g        ; Input ; Info     ; Stuck at GND     ;
+; h        ; Input ; Info     ; Stuck at GND     ;
++----------+-------+----------+------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control:ctrl"                                                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; mult ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; div  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Fri May 17 11:46:31 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c cpu
+Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Found 2 design units, including 1 entities, in source file banco_reg.vhd
+    Info: Found design unit 1: Banco_reg-behavioral_arch
+    Info: Found entity 1: Banco_reg
+Info: Found 1 design units, including 1 entities, in source file control.v
+    Info: Found entity 1: control
+Warning (10275): Verilog HDL Module Instantiation warning at cpu.v(345): ignored dangling comma in List of Port Connections
+Info: Found 1 design units, including 1 entities, in source file cpu.v
+    Info: Found entity 1: cpu
+Info: Found 1 design units, including 1 entities, in source file div.v
+    Info: Found entity 1: div
+Info: Found 1 design units, including 1 entities, in source file dlr.v
+    Info: Found entity 1: dlr
+Info: Found 1 design units, including 1 entities, in source file dsr.v
+    Info: Found entity 1: dsr
+Info: Found 2 design units, including 1 entities, in source file instr_reg.vhd
+    Info: Found design unit 1: Instr_Reg-behavioral_arch
+    Info: Found entity 1: Instr_Reg
+Info: Found 3 design units, including 1 entities, in source file memoria.vhd
+    Info: Found design unit 1: ram_constants
+    Info: Found design unit 2: Memoria-behavioral_arch
+    Info: Found entity 1: Memoria
+Info: Found 1 design units, including 1 entities, in source file mult.v
+    Info: Found entity 1: mult
+Info: Found 1 design units, including 1 entities, in source file mux1_4x1.v
+    Info: Found entity 1: mux1_4x1
+Info: Found 1 design units, including 1 entities, in source file mux32_2x1.v
+    Info: Found entity 1: mux32_2x1
+Info: Found 1 design units, including 1 entities, in source file mux32_4x1.v
+    Info: Found entity 1: mux32_4x1
+Info: Found 1 design units, including 1 entities, in source file mux32_8x1.v
+    Info: Found entity 1: mux32_8x1
+Info: Found 1 design units, including 1 entities, in source file mux5_2x1.v
+    Info: Found entity 1: mux5_2x1
+Info: Found 1 design units, including 1 entities, in source file mux5_4x1.v
+    Info: Found entity 1: mux5_4x1
+Info: Found 2 design units, including 1 entities, in source file regdesloc.vhd
+    Info: Found design unit 1: RegDesloc-behavioral_arch
+    Info: Found entity 1: RegDesloc
+Info: Found 2 design units, including 1 entities, in source file registrador.vhd
+    Info: Found design unit 1: Registrador-behavioral_arch
+    Info: Found entity 1: Registrador
+Info: Found 1 design units, including 1 entities, in source file shiftleft16_16_32.v
+    Info: Found entity 1: shiftleft16_16_32
+Info: Found 1 design units, including 1 entities, in source file shiftleft2_26_28.v
+    Info: Found entity 1: shiftleft2_26_28
+Info: Found 1 design units, including 1 entities, in source file shiftleft2_32_32.v
+    Info: Found entity 1: shiftleft2_32_32
+Info: Found 1 design units, including 1 entities, in source file signextend16_32.v
+    Info: Found entity 1: signextend16_32
+Info: Found 1 design units, including 1 entities, in source file signextend1_32.v
+    Info: Found entity 1: signextend1_32
+Info: Found 2 design units, including 1 entities, in source file ula32.vhd
+    Info: Found design unit 1: Ula32-behavioral
+    Info: Found entity 1: Ula32
+Info: Found 1 design units, including 1 entities, in source file unsignextend26_32.v
+    Info: Found entity 1: unsignextend26_32
+Info: Elaborating entity "cpu" for the top level hierarchy
+Info: Elaborating entity "control" for hierarchy "control:ctrl"
+Warning (10270): Verilog HDL Case Statement warning at control.v(307): incomplete case statement has no default case item
+Warning (10270): Verilog HDL Case Statement warning at control.v(538): incomplete case statement has no default case item
+Warning (10270): Verilog HDL Case Statement warning at control.v(690): incomplete case statement has no default case item
+Warning (10270): Verilog HDL Case Statement warning at control.v(1476): incomplete case statement has no default case item
+Warning (10270): Verilog HDL Case Statement warning at control.v(2080): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at control.v(121): inferring latch(es) for variable "nextState", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "nextState.EXP_WAIT_2" at control.v(121)
+Info (10041): Inferred latch for "nextState.LS_WAIT_2" at control.v(121)
+Info (10041): Inferred latch for "nextState.INCDEC_WAIT_2" at control.v(121)
+Info (10041): Inferred latch for "nextState.WAIT_2" at control.v(121)
+Info (10041): Inferred latch for "nextState.EXP_WRITE" at control.v(121)
+Info (10041): Inferred latch for "nextState.EXP_WAIT" at control.v(121)
+Info (10041): Inferred latch for "nextState.NOPCODE" at control.v(121)
+Info (10041): Inferred latch for "nextState.OVERFLOW" at control.v(121)
+Info (10041): Inferred latch for "nextState.LW_END" at control.v(121)
+Info (10041): Inferred latch for "nextState.LH_END" at control.v(121)
+Info (10041): Inferred latch for "nextState.LB_END" at control.v(121)
+Info (10041): Inferred latch for "nextState.SW_END" at control.v(121)
+Info (10041): Inferred latch for "nextState.SH_END" at control.v(121)
+Info (10041): Inferred latch for "nextState.SB_END" at control.v(121)
+Info (10041): Inferred latch for "nextState.LS_WAIT" at control.v(121)
+Info (10041): Inferred latch for "nextState.LS_START" at control.v(121)
+Info (10041): Inferred latch for "nextState.LS_CALC" at control.v(121)
+Info (10041): Inferred latch for "nextState.SLTI" at control.v(121)
+Info (10041): Inferred latch for "nextState.LUI" at control.v(121)
+Info (10041): Inferred latch for "nextState.BGT" at control.v(121)
+Info (10041): Inferred latch for "nextState.BLE" at control.v(121)
+Info (10041): Inferred latch for "nextState.BNE" at control.v(121)
+Info (10041): Inferred latch for "nextState.BEQ" at control.v(121)
+Info (10041): Inferred latch for "nextState.REG_WRITE" at control.v(121)
+Info (10041): Inferred latch for "nextState.ADDI" at control.v(121)
+Info (10041): Inferred latch for "nextState.ADDIU" at control.v(121)
+Info (10041): Inferred latch for "nextState.INCDEC_ST" at control.v(121)
+Info (10041): Inferred latch for "nextState.INC_OP" at control.v(121)
+Info (10041): Inferred latch for "nextState.DEC_OP" at control.v(121)
+Info (10041): Inferred latch for "nextState.INCDEC_WAIT" at control.v(121)
+Info (10041): Inferred latch for "nextState.INCDEC" at control.v(121)
+Info (10041): Inferred latch for "nextState.J" at control.v(121)
+Info (10041): Inferred latch for "nextState.RETURN_ADDRESS" at control.v(121)
+Info (10041): Inferred latch for "nextState.JAL" at control.v(121)
+Info (10041): Inferred latch for "nextState.DIV_RESULT" at control.v(121)
+Info (10041): Inferred latch for "nextState.DIV_CALC" at control.v(121)
+Info (10041): Inferred latch for "nextState.DIV_LOAD" at control.v(121)
+Info (10041): Inferred latch for "nextState.MULT_RESULT" at control.v(121)
+Info (10041): Inferred latch for "nextState.MULT_CALC" at control.v(121)
+Info (10041): Inferred latch for "nextState.MULT_LOAD" at control.v(121)
+Info (10041): Inferred latch for "nextState.BREAK" at control.v(121)
+Info (10041): Inferred latch for "nextState.RTE" at control.v(121)
+Info (10041): Inferred latch for "nextState.JR" at control.v(121)
+Info (10041): Inferred latch for "nextState.SLT" at control.v(121)
+Info (10041): Inferred latch for "nextState.MFLO" at control.v(121)
+Info (10041): Inferred latch for "nextState.MFHI" at control.v(121)
+Info (10041): Inferred latch for "nextState.WRITERD_SHIFT" at control.v(121)
+Info (10041): Inferred latch for "nextState.SRAV" at control.v(121)
+Info (10041): Inferred latch for "nextState.SLLV" at control.v(121)
+Info (10041): Inferred latch for "nextState.SHIFT_REG" at control.v(121)
+Info (10041): Inferred latch for "nextState.SRL" at control.v(121)
+Info (10041): Inferred latch for "nextState.SRA" at control.v(121)
+Info (10041): Inferred latch for "nextState.SLL" at control.v(121)
+Info (10041): Inferred latch for "nextState.SHIFT_SHAMT" at control.v(121)
+Info (10041): Inferred latch for "nextState.WRITERD_ARIT" at control.v(121)
+Info (10041): Inferred latch for "nextState.SUB" at control.v(121)
+Info (10041): Inferred latch for "nextState.AND" at control.v(121)
+Info (10041): Inferred latch for "nextState.ADD" at control.v(121)
+Info (10041): Inferred latch for "nextState.DECODE" at control.v(121)
+Info (10041): Inferred latch for "nextState.WAIT" at control.v(121)
+Info (10041): Inferred latch for "nextState.FETCH" at control.v(121)
+Info: Elaborating entity "signextend16_32" for hierarchy "signextend16_32:extend16_32"
+Info: Elaborating entity "shiftleft2_32_32" for hierarchy "shiftleft2_32_32:shift_extend32_32"
+Info: Elaborating entity "shiftleft2_26_28" for hierarchy "shiftleft2_26_28:shift_extend26_28"
+Info: Elaborating entity "shiftleft16_16_32" for hierarchy "shiftleft16_16_32:shift_extend16_32"
+Info: Elaborating entity "signextend1_32" for hierarchy "signextend1_32:extend1_32"
+Info: Elaborating entity "unsignextend26_32" for hierarchy "unsignextend26_32:extend26_32"
+Info: Elaborating entity "Registrador" for hierarchy "Registrador:pc"
+Info: Elaborating entity "Instr_Reg" for hierarchy "Instr_Reg:ir"
+Info: Elaborating entity "mux32_8x1" for hierarchy "mux32_8x1:mux_iord"
+Info: Elaborating entity "mux5_4x1" for hierarchy "mux5_4x1:mux_regdest"
+Info: Elaborating entity "mux32_4x1" for hierarchy "mux32_4x1:mux_alusrca"
+Info: Elaborating entity "mux5_2x1" for hierarchy "mux5_2x1:mux_shamtcontrol"
+Info: Elaborating entity "mux32_2x1" for hierarchy "mux32_2x1:mux_shiftval"
+Info: Elaborating entity "mux1_4x1" for hierarchy "mux1_4x1:mux_alulogic"
+Info: Elaborating entity "Banco_reg" for hierarchy "Banco_reg:bancoreg"
+Info: Elaborating entity "RegDesloc" for hierarchy "RegDesloc:shift_reg"
+Warning (10492): VHDL Process Statement warning at RegDesloc.vhd(1072): signal "temp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info: Elaborating entity "Ula32" for hierarchy "Ula32:alu"
+Info: Elaborating entity "mult" for hierarchy "mult:MULT"
+Info (10264): Verilog HDL Case Statement information at mult.v(31): all case item expressions in this case statement are onehot
+Info: Elaborating entity "div" for hierarchy "div:DIV"
+Warning (10036): Verilog HDL or VHDL warning at div.v(17): object "remainder" assigned a value but never read
+Info: Elaborating entity "Memoria" for hierarchy "Memoria:memory"
+Info: Elaborating entity "LPM_RAM_DQ" for hierarchy "Memoria:memory|LPM_RAM_DQ:MEM"
+Info: Elaborated megafunction instantiation "Memoria:memory|LPM_RAM_DQ:MEM"
+Info: Instantiated megafunction "Memoria:memory|LPM_RAM_DQ:MEM" with the following parameter:
+    Info: Parameter "LPM_WIDTH" = "8"
+    Info: Parameter "LPM_WIDTHAD" = "8"
+    Info: Parameter "LPM_NUMWORDS" = "0"
+    Info: Parameter "LPM_INDATA" = "REGISTERED"
+    Info: Parameter "LPM_ADDRESS_CONTROL" = "REGISTERED"
+    Info: Parameter "LPM_OUTDATA" = "REGISTERED"
+    Info: Parameter "LPM_FILE" = "instrucoes.mif"
+    Info: Parameter "LPM_TYPE" = "LPM_RAM_DQ"
+    Info: Parameter "USE_EAB" = "ON"
+    Info: Parameter "INTENDED_DEVICE_FAMILY" = "UNUSED"
+    Info: Parameter "LPM_HINT" = "UNUSED"
+Info: Elaborating entity "altram" for hierarchy "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram"
+Warning: Assertion warning: altram does not support Stratix II device family -- attempting best-case memory conversions, but power-up states and read during write behavior will be different for Stratix II devices
+Info: Elaborated megafunction instantiation "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram", which is child of megafunction instantiation "Memoria:memory|LPM_RAM_DQ:MEM"
+Info: Elaborating entity "altsyncram" for hierarchy "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block"
+Info: Elaborated megafunction instantiation "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block", which is child of megafunction instantiation "Memoria:memory|LPM_RAM_DQ:MEM"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_g2a1.tdf
+    Info: Found entity 1: altsyncram_g2a1
+Info: Elaborating entity "altsyncram_g2a1" for hierarchy "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated"
+Info: Elaborating entity "dlr" for hierarchy "dlr:DLR"
+Info: Elaborating entity "dsr" for hierarchy "dsr:DSR"
+Warning: 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning: Latch control:ctrl|nextState.SB_END_1848 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.LS_WAIT_2
+Warning: Latch control:ctrl|nextState.SH_END_1828 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.LS_WAIT_2
+Warning: Latch control:ctrl|nextState.SW_END_1808 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.LS_WAIT_2
+Warning: Latch control:ctrl|nextState.LB_END_1788 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.LS_WAIT_2
+Warning: Latch control:ctrl|nextState.LH_END_1768 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.LS_WAIT_2
+Warning: Latch control:ctrl|nextState.LW_END_1748 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.LS_WAIT_2
+Warning: Latch control:ctrl|nextState.NOPCODE_1710 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.INCDEC_2156 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal Instr_Reg:ir|Instr31_26[5]
+Warning: Latch control:ctrl|nextState.INCDEC_ST_2082 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.JR_2382 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.BEQ_2010 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.BNE_1992 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.BLE_1974 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.BGT_1956 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.RTE_2362 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.JAL_2210 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.J_2174 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.AND_2656 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.SUB_2636 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.SLT_2402 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.BREAK_2342 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.DEC_OP_2120 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.INCDEC_WAIT_2
+Warning: Latch control:ctrl|nextState.SLTI_1920 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.INC_OP_2101 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.INCDEC_WAIT_2
+Warning: Latch control:ctrl|nextState.ADDIU_2064 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.ADDI_2046 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.LS_CALC_1902 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.ADD_2676 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.SHIFT_REG_2518 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal Instr_Reg:ir|Instr15_0[5]
+Warning: Latch control:ctrl|nextState.SHIFT_SHAMT_2598 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.MFHI_2442 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.MFLO_2422 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.LUI_1938 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.SLLV_2498 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.SHIFT_REG
+Warning: Latch control:ctrl|nextState.SRAV_2479 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.SHIFT_REG
+Warning: Latch control:ctrl|nextState.SRL_2538 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.SHIFT_SHAMT
+Warning: Latch control:ctrl|nextState.SLL_2578 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.SHIFT_SHAMT
+Warning: Latch control:ctrl|nextState.SRA_2558 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.SHIFT_SHAMT
+Warning: Latch control:ctrl|nextState.DIV_LOAD_2266 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Warning: Latch control:ctrl|nextState.MULT_LOAD_2322 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state.DECODE
+Info: 7 registers lost all their fanouts during netlist optimizations. The first 7 are displayed below.
+    Info: Register "control:ctrl|state.DIVZERO" lost all its fanouts during netlist optimizations.
+    Info: Register "control:ctrl|state~4" lost all its fanouts during netlist optimizations.
+    Info: Register "control:ctrl|state~5" lost all its fanouts during netlist optimizations.
+    Info: Register "control:ctrl|state~6" lost all its fanouts during netlist optimizations.
+    Info: Register "control:ctrl|state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "control:ctrl|state~8" lost all its fanouts during netlist optimizations.
+    Info: Register "control:ctrl|state~9" lost all its fanouts during netlist optimizations.
+Info: Generated suppressed messages file C:/Users/vdj/Desktop/adasdsa/quartus/cpu.map.smsg
+Info: Implemented 4407 device resources after synthesis - the final resource count might be different
+    Info: Implemented 2 input pins
+    Info: Implemented 240 output pins
+    Info: Implemented 4133 logic cells
+    Info: Implemented 32 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 91 warnings
+    Info: Peak virtual memory: 342 megabytes
+    Info: Processing ended: Fri May 17 11:47:07 2019
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:00:42
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/vdj/Desktop/adasdsa/quartus/cpu.map.smsg.
+
+
