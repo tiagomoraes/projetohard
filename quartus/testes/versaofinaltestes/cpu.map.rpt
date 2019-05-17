@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu
-Fri May 17 12:47:57 2019
+Fri May 17 14:39:05 2019
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +-------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status   ; Successful - Fri May 17 12:47:57 2019        ;
+; Analysis & Synthesis Status   ; Successful - Fri May 17 14:39:04 2019        ;
 ; Quartus II Version            ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                 ; cpu                                          ;
 ; Top-level Entity Name         ; cpu                                          ;
@@ -161,58 +161,52 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     1 processor            ; 100.0%      ;
-;     2-4 processors         ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                   ;
-+----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------+
-; instrucoes.mif                   ; yes             ; User Memory Initialization File  ; C:/Users/vdj/Desktop/adasdsa/quartus/instrucoes.mif                            ;
-; Banco_reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/Banco_reg.vhd                             ;
-; control.v                        ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/control.v                                 ;
-; cpu.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/cpu.v                                     ;
-; div.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/div.v                                     ;
-; dlr.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/dlr.v                                     ;
-; dsr.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/dsr.v                                     ;
-; Instr_Reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/Instr_Reg.vhd                             ;
-; Memoria.vhd                      ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/Memoria.vhd                               ;
-; mult.v                           ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mult.v                                    ;
-; mux1_4x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux1_4x1.v                                ;
-; mux32_2x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux32_2x1.v                               ;
-; mux32_4x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux32_4x1.v                               ;
-; mux32_8x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux32_8x1.v                               ;
-; mux5_2x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux5_2x1.v                                ;
-; mux5_4x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/mux5_4x1.v                                ;
-; RegDesloc.vhd                    ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/RegDesloc.vhd                             ;
-; Registrador.vhd                  ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/Registrador.vhd                           ;
-; shiftleft16_16_32.v              ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/shiftleft16_16_32.v                       ;
-; shiftleft2_26_28.v               ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/shiftleft2_26_28.v                        ;
-; shiftleft2_32_32.v               ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/shiftleft2_32_32.v                        ;
-; signextend16_32.v                ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/signextend16_32.v                         ;
-; signextend1_32.v                 ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/signextend1_32.v                          ;
-; ula32.vhd                        ; yes             ; User VHDL File                   ; C:/Users/vdj/Desktop/adasdsa/quartus/ula32.vhd                                 ;
-; unsignextend26_32.v              ; yes             ; User Verilog HDL File            ; C:/Users/vdj/Desktop/adasdsa/quartus/unsignextend26_32.v                       ;
-; lpm_ram_dq.tdf                   ; yes             ; Megafunction                     ; c:/programfiles/altera/quartus9/quartus/libraries/megafunctions/lpm_ram_dq.tdf ;
-; altram.tdf                       ; yes             ; Megafunction                     ; c:/programfiles/altera/quartus9/quartus/libraries/megafunctions/altram.tdf     ;
-; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/programfiles/altera/quartus9/quartus/libraries/megafunctions/altsyncram.tdf ;
-; db/altsyncram_g2a1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/vdj/Desktop/adasdsa/quartus/db/altsyncram_g2a1.tdf                    ;
-+----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                       ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+
+; instrucoes.mif                   ; yes             ; User Memory Initialization File  ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/instrucoes.mif         ;
+; Banco_reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/Banco_reg.vhd          ;
+; control.v                        ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/control.v              ;
+; cpu.v                            ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.v                  ;
+; div.v                            ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/div.v                  ;
+; dlr.v                            ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/dlr.v                  ;
+; dsr.v                            ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/dsr.v                  ;
+; Instr_Reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/Instr_Reg.vhd          ;
+; Memoria.vhd                      ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/Memoria.vhd            ;
+; mult.v                           ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mult.v                 ;
+; mux1_4x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux1_4x1.v             ;
+; mux32_2x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux32_2x1.v            ;
+; mux32_4x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux32_4x1.v            ;
+; mux32_8x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux32_8x1.v            ;
+; mux5_2x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux5_2x1.v             ;
+; mux5_4x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux5_4x1.v             ;
+; RegDesloc.vhd                    ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/RegDesloc.vhd          ;
+; Registrador.vhd                  ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/Registrador.vhd        ;
+; shiftleft16_16_32.v              ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/shiftleft16_16_32.v    ;
+; shiftleft2_26_28.v               ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/shiftleft2_26_28.v     ;
+; shiftleft2_32_32.v               ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/shiftleft2_32_32.v     ;
+; signextend16_32.v                ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/signextend16_32.v      ;
+; signextend1_32.v                 ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/signextend1_32.v       ;
+; ula32.vhd                        ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/ula32.vhd              ;
+; unsignextend26_32.v              ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/unsignextend26_32.v    ;
+; lpm_ram_dq.tdf                   ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_ram_dq.tdf                     ;
+; altram.tdf                       ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/altram.tdf                         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/altsyncram.tdf                     ;
+; db/altsyncram_g2a1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/db/altsyncram_g2a1.tdf ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------+
@@ -266,17 +260,17 @@ applicable agreement for further details.
 ;    |Instr_Reg:ir|                               ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Instr_Reg:ir                                                                                             ; work         ;
 ;    |Memoria:memory|                             ; 23 (23)           ; 0 (0)        ; 8192              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory                                                                                           ; work         ;
 ;       |lpm_ram_dq:MEM_plus_One|                 ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One                                                                   ; work         ;
-;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram                                                       ; work         ;
-;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block                                  ; work         ;
-;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated   ;              ;
-;       |lpm_ram_dq:MEM_plus_Three|               ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three                                                                 ;              ;
-;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram                                                     ;              ;
-;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block                                ;              ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram                                                       ;              ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block                                  ;              ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated   ; work         ;
+;       |lpm_ram_dq:MEM_plus_Three|               ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three                                                                 ; work         ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram                                                     ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block                                ; work         ;
 ;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ; work         ;
-;       |lpm_ram_dq:MEM_plus_Two|                 ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two                                                                   ;              ;
-;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram                                                       ;              ;
-;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block                                  ;              ;
-;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated   ;              ;
+;       |lpm_ram_dq:MEM_plus_Two|                 ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two                                                                   ; work         ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram                                                       ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block                                  ; work         ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated   ; work         ;
 ;       |lpm_ram_dq:MEM|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM                                                                            ; work         ;
 ;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM|altram:sram                                                                ; work         ;
 ;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block                                           ; work         ;
@@ -800,9 +794,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri May 17 12:47:28 2019
+    Info: Processing started: Fri May 17 14:38:43 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c cpu
-Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info: Found 2 design units, including 1 entities, in source file banco_reg.vhd
     Info: Found design unit 1: Banco_reg-behavioral_arch
     Info: Found entity 1: Banco_reg
@@ -1000,6 +993,7 @@ Info: Elaborated megafunction instantiation "Memoria:memory|LPM_RAM_DQ:MEM|altra
 Info: Found 1 design units, including 1 entities, in source file db/altsyncram_g2a1.tdf
     Info: Found entity 1: altsyncram_g2a1
 Info: Elaborating entity "altsyncram_g2a1" for hierarchy "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated"
+Critical Warning: Memory depth (256) in the design file differs from memory depth (12) in the Memory Initialization File "instrucoes.mif" -- setting initial value for remaining addresses to 0
 Info: Elaborating entity "dlr" for hierarchy "dlr:DLR"
 Info: Elaborating entity "dsr" for hierarchy "dsr:DSR"
 Warning: 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
@@ -1101,22 +1095,22 @@ Warning: Latch control:ctrl|dloadab has unsafe behavior
     Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state[5]
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "stateout[6]" is stuck at GND
-Info: Generated suppressed messages file C:/Users/vdj/Desktop/adasdsa/quartus/cpu.map.smsg
+Info: Generated suppressed messages file C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.map.smsg
 Info: Implemented 4340 device resources after synthesis - the final resource count might be different
     Info: Implemented 2 input pins
     Info: Implemented 268 output pins
     Info: Implemented 4038 logic cells
     Info: Implemented 32 RAM segments
-Info: Quartus II Analysis & Synthesis was successful. 0 errors, 136 warnings
-    Info: Peak virtual memory: 342 megabytes
-    Info: Processing ended: Fri May 17 12:47:57 2019
-    Info: Elapsed time: 00:00:29
-    Info: Total CPU time (on all processors): 00:00:29
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 137 warnings
+    Info: Peak virtual memory: 305 megabytes
+    Info: Processing ended: Fri May 17 14:39:05 2019
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:23
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/vdj/Desktop/adasdsa/quartus/cpu.map.smsg.
+The suppressed messages can be found in C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.map.smsg.
 
 
