@@ -39,7 +39,8 @@ module control(
 	output reg shiftval,
 	output reg [2:0] shiftcontrol,
 	output reg epcwrite,
-	output reg [1:0] alulogic
+	output reg [1:0] alulogic,
+    output reg [5:0]state
 );
 
 parameter RESET = 6'd0;
@@ -106,8 +107,6 @@ parameter INCDEC_WAIT_2 = 6'd60;
 parameter LS_WAIT_2 = 6'd61;
 parameter EXP_WAIT_2 = 6'd62;
 
-
-reg [5:0]state;
 reg [5:0]nextState;
 
 always@(posedge clk or posedge reset) begin

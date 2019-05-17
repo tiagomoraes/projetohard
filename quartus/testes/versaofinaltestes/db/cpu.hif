@@ -1403,6 +1403,42 @@ dsr:DSR
 
 # end
 # entity
+div
+# storage
+db|cpu.(24).cnf
+db|cpu.(24).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+div.v
+37dfb0cdb4fde7b105467cb7795983
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+div:DIV
+}
+# macro_sequence
+
+# end
+# entity
 altsyncram_g2a1
 # storage
 db|cpu.(27).cnf
@@ -1497,7 +1533,7 @@ address_a0
 }
 # memory_file {
 instrucoes.mif
-224c7fb554e8b8e87510a7494655964e
+e4f582d41889addde25e4f8337bfc90
 }
 # hierarchies {
 Memoria:memory|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
@@ -1520,7 +1556,7 @@ ON
 # case_sensitive
 # source_file
 cpu.v
-15986bb61aa617c6ecc5f6fe9ec13371
+8cc9fcfad11c375568fb24dfdae4f47
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1594,7 +1630,7 @@ ON
 # case_sensitive
 # source_file
 control.v
-d64c97747f632572046385c43b2d18e
+6ced72e14dc627d1ed42e89e466d1b2
 8
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -1868,42 +1904,6 @@ DEF
 }
 # hierarchies {
 control:ctrl
-}
-# macro_sequence
-
-# end
-# entity
-div
-# storage
-db|cpu.(24).cnf
-db|cpu.(24).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_sensitive
-# source_file
-div.v
-37dfb0cdb4fde7b105467cb7795983
-8
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-IGNORE_VERILOG_INITIAL_CONSTRUCTS
-OFF
-VERILOG_CONSTANT_LOOP_LIMIT
-5000
-VERILOG_NON_CONSTANT_LOOP_LIMIT
-250
-}
-# hierarchies {
-div:DIV
 }
 # macro_sequence
 

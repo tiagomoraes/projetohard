@@ -14,6 +14,9 @@ module cpu (clk, reset, pc_out, reg_alu_out, mem_adress_in, mdr_out, dsr_out, dl
 	output wire [4:0]rs;
 	output wire [4:0]rt;
 	output wire [31:0]epc_out;
+	output wire [6:0]stateout;
+	output wire [15:0]imediate;
+	output wire [4:0]rd = imediate[15:11];
 
 	parameter stack_pointer = 5'd29; // $29
 	parameter stack_top = 32'd227;
@@ -35,7 +38,6 @@ module cpu (clk, reset, pc_out, reg_alu_out, mem_adress_in, mdr_out, dsr_out, dl
 	wire [31:0]branch;
 	wire [4:0]shift_amt;
 	wire [31:0]shift_in;
-	wire [4:0]rd = imediate[15:11]; 
 	wire [5:0]funct = imediate[5:0];
 	wire [31:0]incdecadr;
 	wire [25:0]instruction_26 = {rs, rt, imediate};
@@ -61,7 +63,7 @@ module cpu (clk, reset, pc_out, reg_alu_out, mem_adress_in, mdr_out, dsr_out, dl
 	wire [31:0]low_in;
 	wire [31:0]high_out;
 	wire [31:0]low_out;
-	wire [15:0]imediate;
+	
 	wire [31:0]imediate_extend;
 	wire [31:0]mem_out;
 
@@ -149,7 +151,8 @@ module cpu (clk, reset, pc_out, reg_alu_out, mem_adress_in, mdr_out, dsr_out, dl
 		.shiftval(shiftval),
 		.shiftcontrol(shiftcontrol),
 		.epcwrite(epcwrite),
-		.alulogic(alulogic)
+		.alulogic(alulogic),
+		.state(stateout)
 	);
 
 	//extensores
