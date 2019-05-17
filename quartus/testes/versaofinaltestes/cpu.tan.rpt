@@ -1,5 +1,5 @@
 Classic Timing Analyzer report for cpu
-Fri May 17 12:48:22 2019
+Fri May 17 14:39:28 2019
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -94,21 +94,15 @@ applicable agreement for further details.
 +-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     1 processor            ; 100.0%      ;
-;     2-4 processors         ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1162,9 +1156,8 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Classic Timing Analyzer
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri May 17 12:48:21 2019
+    Info: Processing started: Fri May 17 14:39:26 2019
 Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off cpu -c cpu --timing_analysis_only
-Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Warning: Timing Analysis is analyzing one or more combinational loops as latches
     Warning: Node "control:ctrl|pcsrc[2]" is a latch
     Warning: Node "control:ctrl|pcsrc[0]" is a latch
@@ -1475,9 +1468,9 @@ Info: th for register "div:DIV|dividend[2]" (data pin = "reset", clock pin = "cl
         Info: Total cell delay = 1.072 ns ( 21.35 % )
         Info: Total interconnect delay = 3.948 ns ( 78.65 % )
 Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 263 megabytes
-    Info: Processing ended: Fri May 17 12:48:23 2019
+    Info: Peak virtual memory: 231 megabytes
+    Info: Processing ended: Fri May 17 14:39:28 2019
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:04
 
 
