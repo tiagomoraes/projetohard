@@ -437,7 +437,7 @@ always@(*) begin
             bwrite = 1'b0;
             alusrca = 2'b10; 
             alusrcb = 3'b000;
-            aluop = 3'b010;
+            aluop = 3'b011;
             aluoutwrite = 1'b1;
             pcsrc = 3'b000;
             pcwrite = 1'b0;
