@@ -79,7 +79,10 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
             end
 
             divisor = divisor >> 1;
-            cont = cont - 1;
+            
+			if(cont > 0) begin
+				cont = (cont - 1);
+			end
 
             if (cont == 0) begin
                 if (flag)

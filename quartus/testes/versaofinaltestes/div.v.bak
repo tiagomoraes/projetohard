@@ -21,6 +21,7 @@ module div(clk, div, div_end, div_zero, a, b, high, low, reset);
     reg [31:0] quotient;
 
     always @(posedge clk) begin
+		div_zero = 1'b0;
         if(reset == 1'b1) begin
             flag = 1'b0;
             flagdiv = 1'b0;
