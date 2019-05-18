@@ -42696,14 +42696,14 @@ VECTOR("C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/testcpu.vwf"
 	}
 }
 
-VECTOR("C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/db/cpu.sim.cvwf")
+VECTOR("C:/Users/vinij/Desktop/proj_hardware/versao final teste/db/cpu.sim.cvwf")
 {
 	ZOOM{
-		ZBEGIN = 19440;
-		ZEND = 43647;
-		NUMERATOR = 1149;
-		DENOMINATOR = 23855;
-		TOP_INDEX = 66;
+		ZBEGIN = 0;
+		ZEND = 11541;
+		NUMERATOR = 1105;
+		DENOMINATOR = 11541;
+		TOP_INDEX = 0;
 	}
 	CLOCK{
 		PERIOD = 10000;
@@ -53443,13 +53443,13 @@ VECTOR("C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/db/cpu.sim.c
 	}
 }
 
-VECTOR("C:/Users/vinij/Desktop/proj_hardware/versao final teste/db/cpu.sim.cvwf")
+VECTOR("C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/db/cpu.sim.cvwf")
 {
 	ZOOM{
 		ZBEGIN = 0;
-		ZEND = 11541;
-		NUMERATOR = 1105;
-		DENOMINATOR = 11541;
+		ZEND = 24207;
+		NUMERATOR = 1149;
+		DENOMINATOR = 23855;
 		TOP_INDEX = 0;
 	}
 	CLOCK{

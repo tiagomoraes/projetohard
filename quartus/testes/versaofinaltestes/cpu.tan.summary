@@ -5,9 +5,9 @@ Timing Analyzer Summary
 Type           : Worst-case tsu
 Slack          : N/A
 Required Time  : None
-Actual Time    : 11.425 ns
+Actual Time    : 11.088 ns
 From           : reset
-To             : div:DIV|high[30]
+To             : mult:MULT|low[19]
 From Clock     : --
 To Clock       : clk
 Failed Paths   : 0
@@ -15,9 +15,9 @@ Failed Paths   : 0
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 13.893 ns
+Actual Time    : 14.330 ns
 From           : control:ctrl|iord[0]
-To             : mem_adress_in[12]
+To             : mem_adress_in[11]
 From Clock     : clk
 To Clock       : --
 Failed Paths   : 0
@@ -25,9 +25,9 @@ Failed Paths   : 0
 Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : -2.478 ns
+Actual Time    : -2.642 ns
 From           : reset
-To             : div:DIV|divisor[53]
+To             : mult:MULT|sub[64]
 From Clock     : --
 To Clock       : clk
 Failed Paths   : 0
@@ -35,8 +35,8 @@ Failed Paths   : 0
 Type           : Clock Setup: 'clk'
 Slack          : N/A
 Required Time  : None
-Actual Time    : 45.88 MHz ( period = 21.794 ns )
-From           : control:ctrl|alusrca[0]
+Actual Time    : 44.95 MHz ( period = 22.248 ns )
+From           : control:ctrl|alusrcb[2]
 To             : control:ctrl|nextState[5]
 From Clock     : clk
 To Clock       : clk
@@ -47,10 +47,10 @@ Slack          : Not operational: Clock Skew > Data Delay
 Required Time  : None
 Actual Time    : N/A
 From           : control:ctrl|state[4]
-To             : control:ctrl|nextState[4]
+To             : control:ctrl|nextState[2]
 From Clock     : clk
 To Clock       : clk
-Failed Paths   : 589
+Failed Paths   : 620
 
 Type           : Total number of failed paths
 Slack          : 
@@ -60,7 +60,7 @@ From           :
 To             : 
 From Clock     : 
 To Clock       : 
-Failed Paths   : 589
+Failed Paths   : 620
 
 --------------------------------------------------------------------------------------
 

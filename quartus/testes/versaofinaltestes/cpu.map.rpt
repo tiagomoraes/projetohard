@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu
-Fri May 17 20:41:31 2019
+Sat May 18 04:40:07 2019
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -19,10 +19,10 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
  11. General Register Statistics
  12. Inverted Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated
- 15. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated
- 16. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated
- 17. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated
+ 14. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 15. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 16. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
+ 17. Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated
  18. Parameter Settings for User Entity Instance: Top-level Entity: |cpu
  19. Parameter Settings for User Entity Instance: control:ctrl
  20. Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM
@@ -64,15 +64,15 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +-------------------------------+----------------------------------------------+
-; Analysis & Synthesis Status   ; Successful - Fri May 17 20:41:31 2019        ;
+; Analysis & Synthesis Status   ; Successful - Sat May 18 04:40:07 2019        ;
 ; Quartus II Version            ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                 ; cpu                                          ;
 ; Top-level Entity Name         ; cpu                                          ;
 ; Family                        ; Stratix II                                   ;
 ; Logic utilization             ; N/A                                          ;
-;     Combinational ALUTs       ; 2,620                                        ;
-;     Dedicated logic registers ; 1,830                                        ;
-; Total registers               ; 1830                                         ;
+;     Combinational ALUTs       ; 2,670                                        ;
+;     Dedicated logic registers ; 1,831                                        ;
+; Total registers               ; 1831                                         ;
 ; Total pins                    ; 270                                          ;
 ; Total virtual pins            ; 0                                            ;
 ; Total block memory bits       ; 8,192                                        ;
@@ -168,46 +168,46 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 16     ;
+; Number detected on machine ; 2      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                   ;
-+----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------+
-; multat.mif                       ; yes             ; User Memory Initialization File  ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/multat.mif             ;
-; Banco_reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/Banco_reg.vhd          ;
-; control.v                        ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/control.v              ;
-; cpu.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/cpu.v                  ;
-; div.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/div.v                  ;
-; dlr.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/dlr.v                  ;
-; dsr.v                            ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/dsr.v                  ;
-; Instr_Reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/Instr_Reg.vhd          ;
-; Memoria.vhd                      ; yes             ; User VHDL File                   ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/Memoria.vhd            ;
-; mult.v                           ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/mult.v                 ;
-; mux1_4x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/mux1_4x1.v             ;
-; mux32_2x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/mux32_2x1.v            ;
-; mux32_4x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/mux32_4x1.v            ;
-; mux32_8x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/mux32_8x1.v            ;
-; mux5_2x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/mux5_2x1.v             ;
-; mux5_4x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/mux5_4x1.v             ;
-; RegDesloc.vhd                    ; yes             ; User VHDL File                   ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/RegDesloc.vhd          ;
-; Registrador.vhd                  ; yes             ; User VHDL File                   ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/Registrador.vhd        ;
-; shiftleft16_16_32.v              ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/shiftleft16_16_32.v    ;
-; shiftleft2_26_28.v               ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/shiftleft2_26_28.v     ;
-; shiftleft2_32_32.v               ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/shiftleft2_32_32.v     ;
-; signextend16_32.v                ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/signextend16_32.v      ;
-; signextend1_32.v                 ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/signextend1_32.v       ;
-; ula32.vhd                        ; yes             ; User VHDL File                   ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/ula32.vhd              ;
-; unsignextend26_32.v              ; yes             ; User Verilog HDL File            ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/unsignextend26_32.v    ;
-; lpm_ram_dq.tdf                   ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_ram_dq.tdf                 ;
-; altram.tdf                       ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/altram.tdf                     ;
-; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/altsyncram.tdf                 ;
-; db/altsyncram_ok91.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/vinij/Desktop/proj_hardware/versao final teste/db/altsyncram_ok91.tdf ;
-+----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                       ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+
+; instrucoes.mif                   ; yes             ; User Memory Initialization File  ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/instrucoes.mif         ;
+; Banco_reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/Banco_reg.vhd          ;
+; control.v                        ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/control.v              ;
+; cpu.v                            ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.v                  ;
+; div.v                            ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/div.v                  ;
+; dlr.v                            ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/dlr.v                  ;
+; dsr.v                            ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/dsr.v                  ;
+; Instr_Reg.vhd                    ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/Instr_Reg.vhd          ;
+; Memoria.vhd                      ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/Memoria.vhd            ;
+; mult.v                           ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mult.v                 ;
+; mux1_4x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux1_4x1.v             ;
+; mux32_2x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux32_2x1.v            ;
+; mux32_4x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux32_4x1.v            ;
+; mux32_8x1.v                      ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux32_8x1.v            ;
+; mux5_2x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux5_2x1.v             ;
+; mux5_4x1.v                       ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/mux5_4x1.v             ;
+; RegDesloc.vhd                    ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/RegDesloc.vhd          ;
+; Registrador.vhd                  ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/Registrador.vhd        ;
+; shiftleft16_16_32.v              ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/shiftleft16_16_32.v    ;
+; shiftleft2_26_28.v               ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/shiftleft2_26_28.v     ;
+; shiftleft2_32_32.v               ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/shiftleft2_32_32.v     ;
+; signextend16_32.v                ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/signextend16_32.v      ;
+; signextend1_32.v                 ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/signextend1_32.v       ;
+; ula32.vhd                        ; yes             ; User VHDL File                   ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/ula32.vhd              ;
+; unsignextend26_32.v              ; yes             ; User Verilog HDL File            ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/unsignextend26_32.v    ;
+; lpm_ram_dq.tdf                   ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_ram_dq.tdf                     ;
+; altram.tdf                       ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/altram.tdf                         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/altera/91sp2/quartus/libraries/megafunctions/altsyncram.tdf                     ;
+; db/altsyncram_g2a1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/db/altsyncram_g2a1.tdf ;
++----------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------+
@@ -215,39 +215,39 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-----------------------------------------------+-------+
 ; Resource                                      ; Usage ;
 +-----------------------------------------------+-------+
-; Estimated ALUTs Used                          ; 2620  ;
-; Dedicated logic registers                     ; 1830  ;
+; Estimated ALUTs Used                          ; 2670  ;
+; Dedicated logic registers                     ; 1831  ;
 ;                                               ;       ;
-; Estimated ALUTs Unavailable                   ; 349   ;
+; Estimated ALUTs Unavailable                   ; 352   ;
 ;                                               ;       ;
-; Total combinational functions                 ; 2620  ;
+; Total combinational functions                 ; 2670  ;
 ; Combinational ALUT usage by number of inputs  ;       ;
-;     -- 7 input functions                      ; 19    ;
-;     -- 6 input functions                      ; 1097  ;
-;     -- 5 input functions                      ; 463   ;
-;     -- 4 input functions                      ; 342   ;
-;     -- <=3 input functions                    ; 699   ;
+;     -- 7 input functions                      ; 51    ;
+;     -- 6 input functions                      ; 1068  ;
+;     -- 5 input functions                      ; 440   ;
+;     -- 4 input functions                      ; 374   ;
+;     -- <=3 input functions                    ; 737   ;
 ;                                               ;       ;
 ; Combinational ALUTs by mode                   ;       ;
-;     -- normal mode                            ; 2289  ;
-;     -- extended LUT mode                      ; 19    ;
+;     -- normal mode                            ; 2307  ;
+;     -- extended LUT mode                      ; 51    ;
 ;     -- arithmetic mode                        ; 312   ;
 ;     -- shared arithmetic mode                 ; 0     ;
 ;                                               ;       ;
-; Estimated ALUT/register pairs used            ; 3928  ;
+; Estimated ALUT/register pairs used            ; 3981  ;
 ;                                               ;       ;
-; Total registers                               ; 1830  ;
-;     -- Dedicated logic registers              ; 1830  ;
+; Total registers                               ; 1831  ;
+;     -- Dedicated logic registers              ; 1831  ;
 ;     -- I/O registers                          ; 0     ;
 ;                                               ;       ;
-; Estimated ALMs:  partially or completely used ; 1,964 ;
+; Estimated ALMs:  partially or completely used ; 1,991 ;
 ;                                               ;       ;
 ; I/O pins                                      ; 270   ;
 ; Total block memory bits                       ; 8192  ;
 ; Maximum fan-out node                          ; reset ;
 ; Maximum fan-out                               ; 1867  ;
-; Total fan-out                                 ; 20222 ;
-; Average fan-out                               ; 4.26  ;
+; Total fan-out                                 ; 20337 ;
+; Average fan-out                               ; 4.23  ;
 +-----------------------------------------------+-------+
 
 
@@ -256,27 +256,27 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                           ; Library Name ;
 +-------------------------------------------------+-------------------+--------------+-------------------+--------------+---------+-----------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------+--------------+
-; |cpu                                            ; 2620 (1)          ; 1830 (0)     ; 8192              ; 0            ; 0       ; 0         ; 0         ; 270  ; 0            ; |cpu                                                                                                          ; work         ;
+; |cpu                                            ; 2670 (1)          ; 1831 (0)     ; 8192              ; 0            ; 0       ; 0         ; 0         ; 270  ; 0            ; |cpu                                                                                                          ; work         ;
 ;    |Banco_reg:bancoreg|                         ; 736 (736)         ; 1024 (1024)  ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Banco_reg:bancoreg                                                                                       ; work         ;
 ;    |Instr_Reg:ir|                               ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Instr_Reg:ir                                                                                             ; work         ;
 ;    |Memoria:memory|                             ; 23 (23)           ; 0 (0)        ; 8192              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory                                                                                           ; work         ;
 ;       |lpm_ram_dq:MEM_plus_One|                 ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One                                                                   ; work         ;
-;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram                                                       ;              ;
-;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block                                  ; work         ;
-;                |altsyncram_ok91:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated   ;              ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram                                                       ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block                                  ;              ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated   ;              ;
 ;       |lpm_ram_dq:MEM_plus_Three|               ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three                                                                 ; work         ;
 ;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram                                                     ; work         ;
 ;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block                                ; work         ;
-;                |altsyncram_ok91:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated ; work         ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ; work         ;
 ;       |lpm_ram_dq:MEM_plus_Two|                 ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two                                                                   ; work         ;
-;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram                                                       ;              ;
-;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block                                  ;              ;
-;                |altsyncram_ok91:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated   ; work         ;
+;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram                                                       ; work         ;
+;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block                                  ; work         ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated   ; work         ;
 ;       |lpm_ram_dq:MEM|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM                                                                            ; work         ;
 ;          |altram:sram|                          ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM|altram:sram                                                                ;              ;
 ;             |altsyncram:ram_block|              ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block                                           ; work         ;
-;                |altsyncram_ok91:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated            ;              ;
-;    |RegDesloc:shift_reg|                        ; 355 (355)         ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|RegDesloc:shift_reg                                                                                      ; work         ;
+;                |altsyncram_g2a1:auto_generated| ; 0 (0)             ; 0 (0)        ; 2048              ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Memoria:memory|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated            ; work         ;
+;    |RegDesloc:shift_reg|                        ; 357 (357)         ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|RegDesloc:shift_reg                                                                                      ; work         ;
 ;    |Registrador:aluout|                         ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:aluout                                                                                       ; work         ;
 ;    |Registrador:epc|                            ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:epc                                                                                          ; work         ;
 ;    |Registrador:high|                           ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:high                                                                                         ; work         ;
@@ -286,11 +286,11 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |Registrador:rega|                           ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:rega                                                                                         ; work         ;
 ;    |Registrador:regb|                           ; 0 (0)             ; 32 (32)      ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Registrador:regb                                                                                         ; work         ;
 ;    |Ula32:alu|                                  ; 154 (154)         ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|Ula32:alu                                                                                                ; work         ;
-;    |control:ctrl|                               ; 202 (202)         ; 6 (6)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|control:ctrl                                                                                             ;              ;
-;    |div:DIV|                                    ; 472 (472)         ; 257 (257)    ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|div:DIV                                                                                                  ; work         ;
+;    |control:ctrl|                               ; 208 (208)         ; 6 (6)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|control:ctrl                                                                                             ;              ;
+;    |div:DIV|                                    ; 510 (510)         ; 257 (257)    ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|div:DIV                                                                                                  ; work         ;
 ;    |dlr:DLR|                                    ; 24 (24)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|dlr:DLR                                                                                                  ; work         ;
 ;    |dsr:DSR|                                    ; 24 (24)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|dsr:DSR                                                                                                  ; work         ;
-;    |mult:MULT|                                  ; 346 (346)         ; 223 (223)    ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mult:MULT                                                                                                ; work         ;
+;    |mult:MULT|                                  ; 350 (350)         ; 224 (224)    ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mult:MULT                                                                                                ; work         ;
 ;    |mux32_2x1:mux_inc|                          ; 32 (32)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux32_2x1:mux_inc                                                                                        ; work         ;
 ;    |mux32_2x1:mux_shiftval|                     ; 5 (5)             ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux32_2x1:mux_shiftval                                                                                   ; work         ;
 ;    |mux32_4x1:mux_alusrca|                      ; 32 (32)           ; 0 (0)        ; 0                 ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |cpu|mux32_4x1:mux_alusrca                                                                                    ; work         ;
@@ -304,16 +304,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                         ;
-+---------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------------+
-; Name                                                                                                                ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF        ;
-+---------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------------+
-; Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; multat.mif ;
-; Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; multat.mif ;
-; Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; multat.mif ;
-; Memoria:memory|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated|ALTSYNCRAM            ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; multat.mif ;
-+---------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                             ;
++---------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+; Name                                                                                                                ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF            ;
++---------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+; Memoria:memory|lpm_ram_dq:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:memory|lpm_ram_dq:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:memory|lpm_ram_dq:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM   ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
+; Memoria:memory|lpm_ram_dq:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated|ALTSYNCRAM            ; AUTO ; Single Port ; 256          ; 8            ; --           ; --           ; 2048 ; instrucoes.mif ;
++---------------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+----------------+
 
 
 +------------------------------------------------------------------------------------------------------+
@@ -379,24 +379,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+--------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                           ;
-+---------------------------------------------------------------------+----------------------------------------+
-; Register name                                                       ; Reason for Removal                     ;
-+---------------------------------------------------------------------+----------------------------------------+
-; div:DIV|divisor[63]                                                 ; Stuck at GND due to stuck port data_in ;
-; mult:MULT|add[0..2,4..6,8..10,12..14,16..18,20..22,24..26,28,30,32] ; Merged with mult:MULT|sub[4]           ;
-; mult:MULT|sub[0..3,5..15]                                           ; Merged with mult:MULT|sub[4]           ;
-; mult:MULT|prod[63]                                                  ; Merged with mult:MULT|prod[64]         ;
-; mult:MULT|sub[17..32]                                               ; Merged with mult:MULT|sub[16]          ;
-; mult:MULT|add[3,7,11,15,19,23,27,29,31]                             ; Merged with mult:MULT|sub[16]          ;
-; mult:MULT|high[31]                                                  ; Merged with mult:MULT|high[30]         ;
-; mult:MULT|sub[16]                                                   ; Merged with mult:MULT|sub[4]           ;
-; div:DIV|dividend[63]                                                ; Stuck at GND due to stuck port data_in ;
-; mult:MULT|sub[4]                                                    ; Stuck at GND due to stuck port data_in ;
-; mult:MULT|add[33]                                                   ; Merged with mult:MULT|sub[33]          ;
-; Total Number of Removed Registers = 71                              ;                                        ;
-+---------------------------------------------------------------------+----------------------------------------+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++-----------------------------------------------+----------------------------------------+
+; Register name                                 ; Reason for Removal                     ;
++-----------------------------------------------+----------------------------------------+
+; div:DIV|divisor[63]                           ; Stuck at GND due to stuck port data_in ;
+; mult:MULT|add[2,6,10,14,18,22,25..26,30]      ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|sub[1,3]                            ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|add[0,4,8..9,12,16..17,20,24,28,32] ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|sub[0,2,5,7]                        ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|prod[63]                            ; Merged with mult:MULT|prod[64]         ;
+; mult:MULT|sub[8..32]                          ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|add[1,3,5,7,11,13,15,19]            ; Merged with mult:MULT|sub[6]           ;
+; mult:MULT|add[23,27,29,31]                    ; Merged with mult:MULT|add[21]          ;
+; mult:MULT|high[31]                            ; Merged with mult:MULT|high[30]         ;
+; mult:MULT|sub[6]                              ; Merged with mult:MULT|sub[4]           ;
+; mult:MULT|add[21]                             ; Merged with mult:MULT|sub[4]           ;
+; div:DIV|dividend[63]                          ; Stuck at GND due to stuck port data_in ;
+; mult:MULT|sub[4]                              ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 70        ;                                        ;
++-----------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -404,8 +407,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1830  ;
-; Number of registers using Synchronous Clear  ; 462   ;
+; Total registers                              ; 1831  ;
+; Number of registers using Synchronous Clear  ; 463   ;
 ; Number of registers using Synchronous Load   ; 97    ;
 ; Number of registers using Asynchronous Clear ; 1350  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -419,9 +422,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; mult:MULT|cont[29]                      ; 3       ;
-; mult:MULT|cont[28]                      ; 3       ;
-; mult:MULT|cont[27]                      ; 3       ;
 ; mult:MULT|cont[26]                      ; 3       ;
 ; mult:MULT|cont[25]                      ; 3       ;
 ; mult:MULT|cont[24]                      ; 3       ;
@@ -449,40 +449,43 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; mult:MULT|cont[2]                       ; 3       ;
 ; mult:MULT|cont[1]                       ; 3       ;
 ; mult:MULT|cont[0]                       ; 3       ;
+; mult:MULT|cont[27]                      ; 3       ;
 ; mult:MULT|cont[31]                      ; 33      ;
+; mult:MULT|cont[28]                      ; 3       ;
 ; mult:MULT|cont[30]                      ; 3       ;
-; div:DIV|cont[26]                        ; 1       ;
-; div:DIV|cont[25]                        ; 1       ;
-; div:DIV|cont[24]                        ; 1       ;
-; div:DIV|cont[23]                        ; 1       ;
-; div:DIV|cont[22]                        ; 1       ;
-; div:DIV|cont[21]                        ; 1       ;
-; div:DIV|cont[20]                        ; 1       ;
-; div:DIV|cont[19]                        ; 1       ;
-; div:DIV|cont[18]                        ; 1       ;
-; div:DIV|cont[17]                        ; 1       ;
-; div:DIV|cont[16]                        ; 1       ;
-; div:DIV|cont[15]                        ; 1       ;
-; div:DIV|cont[14]                        ; 1       ;
-; div:DIV|cont[13]                        ; 1       ;
-; div:DIV|cont[12]                        ; 1       ;
-; div:DIV|cont[11]                        ; 1       ;
-; div:DIV|cont[10]                        ; 1       ;
-; div:DIV|cont[9]                         ; 1       ;
-; div:DIV|cont[8]                         ; 1       ;
-; div:DIV|cont[7]                         ; 1       ;
-; div:DIV|cont[6]                         ; 1       ;
-; div:DIV|cont[5]                         ; 1       ;
-; div:DIV|cont[4]                         ; 1       ;
-; div:DIV|cont[3]                         ; 1       ;
-; div:DIV|cont[2]                         ; 1       ;
-; div:DIV|cont[1]                         ; 1       ;
-; div:DIV|cont[0]                         ; 1       ;
-; div:DIV|cont[30]                        ; 1       ;
-; div:DIV|cont[29]                        ; 1       ;
-; div:DIV|cont[28]                        ; 1       ;
-; div:DIV|cont[27]                        ; 1       ;
-; div:DIV|cont[31]                        ; 1       ;
+; mult:MULT|cont[29]                      ; 3       ;
+; div:DIV|cont[31]                        ; 39      ;
+; div:DIV|cont[17]                        ; 3       ;
+; div:DIV|cont[18]                        ; 3       ;
+; div:DIV|cont[19]                        ; 3       ;
+; div:DIV|cont[20]                        ; 3       ;
+; div:DIV|cont[21]                        ; 3       ;
+; div:DIV|cont[23]                        ; 3       ;
+; div:DIV|cont[22]                        ; 3       ;
+; div:DIV|cont[24]                        ; 3       ;
+; div:DIV|cont[25]                        ; 3       ;
+; div:DIV|cont[26]                        ; 3       ;
+; div:DIV|cont[27]                        ; 3       ;
+; div:DIV|cont[29]                        ; 3       ;
+; div:DIV|cont[28]                        ; 3       ;
+; div:DIV|cont[30]                        ; 3       ;
+; div:DIV|cont[0]                         ; 3       ;
+; div:DIV|cont[1]                         ; 3       ;
+; div:DIV|cont[2]                         ; 3       ;
+; div:DIV|cont[4]                         ; 3       ;
+; div:DIV|cont[3]                         ; 3       ;
+; div:DIV|cont[11]                        ; 3       ;
+; div:DIV|cont[12]                        ; 3       ;
+; div:DIV|cont[13]                        ; 3       ;
+; div:DIV|cont[14]                        ; 3       ;
+; div:DIV|cont[16]                        ; 3       ;
+; div:DIV|cont[15]                        ; 3       ;
+; div:DIV|cont[5]                         ; 3       ;
+; div:DIV|cont[6]                         ; 3       ;
+; div:DIV|cont[7]                         ; 3       ;
+; div:DIV|cont[8]                         ; 3       ;
+; div:DIV|cont[10]                        ; 3       ;
+; div:DIV|cont[9]                         ; 3       ;
 ; Total number of inverted registers = 64 ;         ;
 +-----------------------------------------+---------+
 
@@ -492,45 +495,45 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
-; 3:1                ; 63 bits   ; 126 ALUTs     ; 0 ALUTs              ; 126 ALUTs              ; Yes        ; |cpu|mult:MULT|high[8]              ;
-; 3:1                ; 62 bits   ; 124 ALUTs     ; 0 ALUTs              ; 124 ALUTs              ; Yes        ; |cpu|div:DIV|divisor[23]            ;
-; 4:1                ; 31 bits   ; 62 ALUTs      ; 62 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|div:DIV|divisor[48]            ;
-; 4:1                ; 31 bits   ; 62 ALUTs      ; 62 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|div:DIV|dividend[29]           ;
-; 4:1                ; 31 bits   ; 62 ALUTs      ; 31 ALUTs             ; 31 ALUTs               ; Yes        ; |cpu|div:DIV|dividend[48]           ;
-; 4:1                ; 32 bits   ; 64 ALUTs      ; 32 ALUTs             ; 32 ALUTs               ; Yes        ; |cpu|div:DIV|low[14]                ;
-; 4:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |cpu|div:DIV|high[20]               ;
-; 32:1               ; 32 bits   ; 672 ALUTs     ; 672 ALUTs            ; 0 ALUTs                ; Yes        ; |cpu|Registrador:regb|Saida[23]     ;
-; 32:1               ; 32 bits   ; 672 ALUTs     ; 672 ALUTs            ; 0 ALUTs                ; Yes        ; |cpu|Registrador:rega|Saida[17]     ;
+; 3:1                ; 63 bits   ; 126 ALUTs     ; 0 ALUTs              ; 126 ALUTs              ; Yes        ; |cpu|mult:MULT|high[0]              ;
+; 3:1                ; 62 bits   ; 124 ALUTs     ; 0 ALUTs              ; 124 ALUTs              ; Yes        ; |cpu|div:DIV|divisor[8]             ;
+; 4:1                ; 31 bits   ; 62 ALUTs      ; 62 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|div:DIV|divisor[31]            ;
+; 4:1                ; 31 bits   ; 62 ALUTs      ; 62 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|div:DIV|dividend[18]           ;
+; 4:1                ; 31 bits   ; 62 ALUTs      ; 31 ALUTs             ; 31 ALUTs               ; Yes        ; |cpu|div:DIV|dividend[46]           ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 32 ALUTs             ; 32 ALUTs               ; Yes        ; |cpu|div:DIV|low[30]                ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 0 ALUTs              ; 64 ALUTs               ; Yes        ; |cpu|div:DIV|high[30]               ;
+; 32:1               ; 32 bits   ; 672 ALUTs     ; 672 ALUTs            ; 0 ALUTs                ; Yes        ; |cpu|Registrador:regb|Saida[29]     ;
+; 32:1               ; 32 bits   ; 672 ALUTs     ; 672 ALUTs            ; 0 ALUTs                ; Yes        ; |cpu|Registrador:rega|Saida[22]     ;
 ; 7:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; Yes        ; |cpu|Registrador:pc|Saida[1]        ;
-; 7:1                ; 4 bits    ; 16 ALUTs      ; 16 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|Registrador:pc|Saida[29]       ;
-; 7:1                ; 26 bits   ; 104 ALUTs     ; 104 ALUTs            ; 0 ALUTs                ; Yes        ; |cpu|Registrador:pc|Saida[3]        ;
-; 14:1               ; 13 bits   ; 117 ALUTs     ; 78 ALUTs             ; 39 ALUTs               ; Yes        ; |cpu|RegDesloc:shift_reg|temp[10]   ;
-; 14:1               ; 13 bits   ; 117 ALUTs     ; 78 ALUTs             ; 39 ALUTs               ; Yes        ; |cpu|RegDesloc:shift_reg|temp[20]   ;
-; 4:1                ; 32 bits   ; 64 ALUTs      ; 64 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|div:DIV|cont[10]               ;
-; 3:1                ; 8 bits    ; 16 ALUTs      ; 8 ALUTs              ; 8 ALUTs                ; No         ; |cpu|dsr:DSR|out[15]                ;
-; 3:1                ; 8 bits    ; 16 ALUTs      ; 8 ALUTs              ; 8 ALUTs                ; No         ; |cpu|dlr:DLR|out[11]                ;
-; 4:1                ; 32 bits   ; 64 ALUTs      ; 64 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_4x1:mux_alusrca|out[10]  ;
+; 7:1                ; 4 bits    ; 16 ALUTs      ; 16 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|Registrador:pc|Saida[31]       ;
+; 7:1                ; 26 bits   ; 104 ALUTs     ; 104 ALUTs            ; 0 ALUTs                ; Yes        ; |cpu|Registrador:pc|Saida[12]       ;
+; 14:1               ; 13 bits   ; 117 ALUTs     ; 78 ALUTs             ; 39 ALUTs               ; Yes        ; |cpu|RegDesloc:shift_reg|temp[7]    ;
+; 14:1               ; 13 bits   ; 117 ALUTs     ; 78 ALUTs             ; 39 ALUTs               ; Yes        ; |cpu|RegDesloc:shift_reg|temp[23]   ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 64 ALUTs             ; 0 ALUTs                ; Yes        ; |cpu|div:DIV|cont[17]               ;
+; 3:1                ; 8 bits    ; 16 ALUTs      ; 8 ALUTs              ; 8 ALUTs                ; No         ; |cpu|dsr:DSR|out[8]                 ;
+; 3:1                ; 8 bits    ; 16 ALUTs      ; 8 ALUTs              ; 8 ALUTs                ; No         ; |cpu|dlr:DLR|out[8]                 ;
+; 4:1                ; 32 bits   ; 64 ALUTs      ; 64 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_4x1:mux_alusrca|out[29]  ;
 ; 3:1                ; 64 bits   ; 128 ALUTs     ; 128 ALUTs            ; 0 ALUTs                ; No         ; |cpu|mult:MULT|cont                 ;
-; 3:1                ; 94 bits   ; 188 ALUTs     ; 188 ALUTs            ; 0 ALUTs                ; No         ; |cpu|mult:MULT|sub                  ;
-; 3:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux5_4x1:mux_regdest|out[0]    ;
-; 5:1                ; 2 bits    ; 6 ALUTs       ; 6 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[0]   ;
-; 4:1                ; 15 bits   ; 30 ALUTs      ; 30 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[22]  ;
-; 8:1                ; 32 bits   ; 160 ALUTs     ; 64 ALUTs             ; 96 ALUTs               ; No         ; |cpu|Ula32:alu|Mux59                ;
-; 8:1                ; 32 bits   ; 160 ALUTs     ; 128 ALUTs            ; 32 ALUTs               ; No         ; |cpu|Ula32:alu|Mux20                ;
-; 6:1                ; 6 bits    ; 24 ALUTs      ; 18 ALUTs             ; 6 ALUTs                ; No         ; |cpu|mux32_8x1:mux_iord|out[26]     ;
-; 6:1                ; 24 bits   ; 96 ALUTs      ; 96 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_iord|out[14]     ;
-; 6:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_iord|out[0]      ;
-; 7:1                ; 13 bits   ; 52 ALUTs      ; 52 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[7]   ;
-; 6:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[15]  ;
-; 7:1                ; 11 bits   ; 44 ALUTs      ; 44 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_memtoreg|out[9]  ;
-; 7:1                ; 4 bits    ; 16 ALUTs      ; 16 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_memtoreg|out[1]  ;
-; 8:1                ; 16 bits   ; 80 ALUTs      ; 64 ALUTs             ; 16 ALUTs               ; No         ; |cpu|mux32_8x1:mux_memtoreg|out[18] ;
-; 7:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|control:ctrl|Mux5              ;
+; 3:1                ; 96 bits   ; 192 ALUTs     ; 192 ALUTs            ; 0 ALUTs                ; No         ; |cpu|mult:MULT|prod                 ;
+; 3:1                ; 4 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux5_4x1:mux_regdest|out[4]    ;
+; 5:1                ; 2 bits    ; 6 ALUTs       ; 6 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[1]   ;
+; 4:1                ; 15 bits   ; 30 ALUTs      ; 30 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[23]  ;
+; 8:1                ; 32 bits   ; 160 ALUTs     ; 64 ALUTs             ; 96 ALUTs               ; No         ; |cpu|Ula32:alu|Mux42                ;
+; 8:1                ; 32 bits   ; 160 ALUTs     ; 128 ALUTs            ; 32 ALUTs               ; No         ; |cpu|Ula32:alu|Mux24                ;
+; 6:1                ; 6 bits    ; 24 ALUTs      ; 18 ALUTs             ; 6 ALUTs                ; No         ; |cpu|mux32_8x1:mux_iord|out[31]     ;
+; 6:1                ; 24 bits   ; 96 ALUTs      ; 96 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_iord|out[13]     ;
+; 6:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_iord|out[1]      ;
+; 7:1                ; 13 bits   ; 52 ALUTs      ; 52 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[3]   ;
+; 6:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_alusrcb|out[16]  ;
+; 7:1                ; 11 bits   ; 44 ALUTs      ; 44 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_memtoreg|out[10] ;
+; 7:1                ; 4 bits    ; 16 ALUTs      ; 16 ALUTs             ; 0 ALUTs                ; No         ; |cpu|mux32_8x1:mux_memtoreg|out[7]  ;
+; 8:1                ; 16 bits   ; 80 ALUTs      ; 64 ALUTs             ; 16 ALUTs               ; No         ; |cpu|mux32_8x1:mux_memtoreg|out[23] ;
+; 7:1                ; 2 bits    ; 8 ALUTs       ; 8 ALUTs              ; 0 ALUTs                ; No         ; |cpu|control:ctrl|Mux11             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
-; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated ;
+; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
 +---------------------------------+--------------------+------+--------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                     ;
 +---------------------------------+--------------------+------+--------------------------------------------------------+
@@ -539,7 +542,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated ;
+; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_One|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
 +---------------------------------+--------------------+------+-----------------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                              ;
 +---------------------------------+--------------------+------+-----------------------------------------------------------------+
@@ -548,7 +551,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated ;
+; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Two|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
 +---------------------------------+--------------------+------+-----------------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                              ;
 +---------------------------------+--------------------+------+-----------------------------------------------------------------+
@@ -557,7 +560,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 
 
 +---------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated ;
+; Source assignments for Memoria:memory|LPM_RAM_DQ:MEM_plus_Three|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated ;
 +---------------------------------+--------------------+------+-------------------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                                ;
 +---------------------------------+--------------------+------+-------------------------------------------------------------------+
@@ -657,93 +660,93 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +----------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM ;
-+------------------------+------------+--------------------------------------+
-; Parameter Name         ; Value      ; Type                                 ;
-+------------------------+------------+--------------------------------------+
-; LPM_WIDTH              ; 8          ; Signed Integer                       ;
-; LPM_WIDTHAD            ; 8          ; Signed Integer                       ;
-; LPM_NUMWORDS           ; 0          ; Signed Integer                       ;
-; LPM_INDATA             ; REGISTERED ; Untyped                              ;
-; LPM_ADDRESS_CONTROL    ; REGISTERED ; Untyped                              ;
-; LPM_OUTDATA            ; REGISTERED ; Untyped                              ;
-; LPM_FILE               ; multat.mif ; Untyped                              ;
-; USE_EAB                ; ON         ; Untyped                              ;
-; DEVICE_FAMILY          ; Stratix II ; Untyped                              ;
-; CBXI_PARAMETER         ; NOTHING    ; Untyped                              ;
-; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                           ;
-; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                         ;
-; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                         ;
-; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                       ;
-+------------------------+------------+--------------------------------------+
++------------------------+----------------+----------------------------------+
+; Parameter Name         ; Value          ; Type                             ;
++------------------------+----------------+----------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                   ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                   ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                   ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                          ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                          ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                          ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                          ;
+; USE_EAB                ; ON             ; Untyped                          ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                          ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                   ;
++------------------------+----------------+----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM_plus_One ;
-+------------------------+------------+-----------------------------------------------+
-; Parameter Name         ; Value      ; Type                                          ;
-+------------------------+------------+-----------------------------------------------+
-; LPM_WIDTH              ; 8          ; Signed Integer                                ;
-; LPM_WIDTHAD            ; 8          ; Signed Integer                                ;
-; LPM_NUMWORDS           ; 0          ; Signed Integer                                ;
-; LPM_INDATA             ; REGISTERED ; Untyped                                       ;
-; LPM_ADDRESS_CONTROL    ; REGISTERED ; Untyped                                       ;
-; LPM_OUTDATA            ; REGISTERED ; Untyped                                       ;
-; LPM_FILE               ; multat.mif ; Untyped                                       ;
-; USE_EAB                ; ON         ; Untyped                                       ;
-; DEVICE_FAMILY          ; Stratix II ; Untyped                                       ;
-; CBXI_PARAMETER         ; NOTHING    ; Untyped                                       ;
-; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                    ;
-; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                  ;
-; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                  ;
-; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                ;
-+------------------------+------------+-----------------------------------------------+
++------------------------+----------------+-------------------------------------------+
+; Parameter Name         ; Value          ; Type                                      ;
++------------------------+----------------+-------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                            ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                            ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                            ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                   ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                   ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                   ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                   ;
+; USE_EAB                ; ON             ; Untyped                                   ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                                   ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                   ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                            ;
++------------------------+----------------+-------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM_plus_Two ;
-+------------------------+------------+-----------------------------------------------+
-; Parameter Name         ; Value      ; Type                                          ;
-+------------------------+------------+-----------------------------------------------+
-; LPM_WIDTH              ; 8          ; Signed Integer                                ;
-; LPM_WIDTHAD            ; 8          ; Signed Integer                                ;
-; LPM_NUMWORDS           ; 0          ; Signed Integer                                ;
-; LPM_INDATA             ; REGISTERED ; Untyped                                       ;
-; LPM_ADDRESS_CONTROL    ; REGISTERED ; Untyped                                       ;
-; LPM_OUTDATA            ; REGISTERED ; Untyped                                       ;
-; LPM_FILE               ; multat.mif ; Untyped                                       ;
-; USE_EAB                ; ON         ; Untyped                                       ;
-; DEVICE_FAMILY          ; Stratix II ; Untyped                                       ;
-; CBXI_PARAMETER         ; NOTHING    ; Untyped                                       ;
-; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                    ;
-; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                  ;
-; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                  ;
-; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                ;
-+------------------------+------------+-----------------------------------------------+
++------------------------+----------------+-------------------------------------------+
+; Parameter Name         ; Value          ; Type                                      ;
++------------------------+----------------+-------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                            ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                            ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                            ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                   ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                   ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                   ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                   ;
+; USE_EAB                ; ON             ; Untyped                                   ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                                   ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                   ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                            ;
++------------------------+----------------+-------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Memoria:memory|LPM_RAM_DQ:MEM_plus_Three ;
-+------------------------+------------+-------------------------------------------------+
-; Parameter Name         ; Value      ; Type                                            ;
-+------------------------+------------+-------------------------------------------------+
-; LPM_WIDTH              ; 8          ; Signed Integer                                  ;
-; LPM_WIDTHAD            ; 8          ; Signed Integer                                  ;
-; LPM_NUMWORDS           ; 0          ; Signed Integer                                  ;
-; LPM_INDATA             ; REGISTERED ; Untyped                                         ;
-; LPM_ADDRESS_CONTROL    ; REGISTERED ; Untyped                                         ;
-; LPM_OUTDATA            ; REGISTERED ; Untyped                                         ;
-; LPM_FILE               ; multat.mif ; Untyped                                         ;
-; USE_EAB                ; ON         ; Untyped                                         ;
-; DEVICE_FAMILY          ; Stratix II ; Untyped                                         ;
-; CBXI_PARAMETER         ; NOTHING    ; Untyped                                         ;
-; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                      ;
-; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                    ;
-; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                    ;
-; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                  ;
-+------------------------+------------+-------------------------------------------------+
++------------------------+----------------+---------------------------------------------+
+; Parameter Name         ; Value          ; Type                                        ;
++------------------------+----------------+---------------------------------------------+
+; LPM_WIDTH              ; 8              ; Signed Integer                              ;
+; LPM_WIDTHAD            ; 8              ; Signed Integer                              ;
+; LPM_NUMWORDS           ; 0              ; Signed Integer                              ;
+; LPM_INDATA             ; REGISTERED     ; Untyped                                     ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED     ; Untyped                                     ;
+; LPM_OUTDATA            ; REGISTERED     ; Untyped                                     ;
+; LPM_FILE               ; instrucoes.mif ; Untyped                                     ;
+; USE_EAB                ; ON             ; Untyped                                     ;
+; DEVICE_FAMILY          ; Stratix II     ; Untyped                                     ;
+; CBXI_PARAMETER         ; NOTHING        ; Untyped                                     ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                  ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                              ;
++------------------------+----------------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -852,7 +855,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II Analysis & Synthesis
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri May 17 20:41:11 2019
+    Info: Processing started: Sat May 18 04:39:46 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c cpu
 Info: Found 2 design units, including 1 entities, in source file banco_reg.vhd
     Info: Found design unit 1: Banco_reg-behavioral_arch
@@ -1038,7 +1041,7 @@ Info: Instantiated megafunction "Memoria:memory|LPM_RAM_DQ:MEM" with the followi
     Info: Parameter "LPM_INDATA" = "REGISTERED"
     Info: Parameter "LPM_ADDRESS_CONTROL" = "REGISTERED"
     Info: Parameter "LPM_OUTDATA" = "REGISTERED"
-    Info: Parameter "LPM_FILE" = "multat.mif"
+    Info: Parameter "LPM_FILE" = "instrucoes.mif"
     Info: Parameter "LPM_TYPE" = "LPM_RAM_DQ"
     Info: Parameter "USE_EAB" = "ON"
     Info: Parameter "INTENDED_DEVICE_FAMILY" = "UNUSED"
@@ -1048,10 +1051,10 @@ Warning: Assertion warning: altram does not support Stratix II device family -- 
 Info: Elaborated megafunction instantiation "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram", which is child of megafunction instantiation "Memoria:memory|LPM_RAM_DQ:MEM"
 Info: Elaborating entity "altsyncram" for hierarchy "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block"
 Info: Elaborated megafunction instantiation "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block", which is child of megafunction instantiation "Memoria:memory|LPM_RAM_DQ:MEM"
-Info: Found 1 design units, including 1 entities, in source file db/altsyncram_ok91.tdf
-    Info: Found entity 1: altsyncram_ok91
-Info: Elaborating entity "altsyncram_ok91" for hierarchy "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_ok91:auto_generated"
-Critical Warning: Memory depth (256) in the design file differs from memory depth (84) in the Memory Initialization File "multat.mif" -- setting initial value for remaining addresses to 0
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_g2a1.tdf
+    Info: Found entity 1: altsyncram_g2a1
+Info: Elaborating entity "altsyncram_g2a1" for hierarchy "Memoria:memory|LPM_RAM_DQ:MEM|altram:sram|altsyncram:ram_block|altsyncram_g2a1:auto_generated"
+Critical Warning: Memory depth (256) in the design file differs from memory depth (8) in the Memory Initialization File "instrucoes.mif" -- setting initial value for remaining addresses to 0
 Info: Elaborating entity "dlr" for hierarchy "dlr:DLR"
 Info: Elaborating entity "dsr" for hierarchy "dsr:DSR"
 Warning: 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
@@ -1149,22 +1152,22 @@ Warning: Latch control:ctrl|dloadab has unsafe behavior
     Warning: Ports D and ENA on the latch are fed by the same signal control:ctrl|state[5]
 Warning: Output pins are stuck at VCC or GND
     Warning (13410): Pin "stateout[6]" is stuck at GND
-Info: Generated suppressed messages file C:/Users/vinij/Desktop/proj_hardware/versao final teste/cpu.map.smsg
-Info: Implemented 4272 device resources after synthesis - the final resource count might be different
+Info: Generated suppressed messages file C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.map.smsg
+Info: Implemented 4322 device resources after synthesis - the final resource count might be different
     Info: Implemented 2 input pins
     Info: Implemented 268 output pins
-    Info: Implemented 3970 logic cells
+    Info: Implemented 4020 logic cells
     Info: Implemented 32 RAM segments
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 133 warnings
-    Info: Peak virtual memory: 312 megabytes
-    Info: Processing ended: Fri May 17 20:41:31 2019
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 305 megabytes
+    Info: Processing ended: Sat May 18 04:40:07 2019
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:24
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in C:/Users/vinij/Desktop/proj_hardware/versao final teste/cpu.map.smsg.
+The suppressed messages can be found in C:/Users/tiago/projetohard/quartus/testes/versaofinaltestes/cpu.map.smsg.
 
 
