@@ -1,0 +1,3 @@
+addi 13 0 4
+addi 14 0 -7
+rte

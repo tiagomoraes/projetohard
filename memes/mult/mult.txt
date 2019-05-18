@@ -1,0 +1,5 @@
+addi 12 0 4
+addi 13 0 -23
+mult 12 13
+mfhi 14
+mflo 15
