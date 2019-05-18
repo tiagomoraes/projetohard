@@ -1,5 +1,0 @@
-Info (10281): Verilog HDL Declaration information at control.v(3): object "reset" differs only in case from object "RESET" in the same scope
-Info (10281): Verilog HDL Declaration information at control.v(6): object "overFlow" differs only in case from object "OVERFLOW" in the same scope
-Info (10281): Verilog HDL Declaration information at control.v(7): object "divZero" differs only in case from object "DIVZERO" in the same scope
-Info (10281): Verilog HDL Declaration information at cpu.v(85): object "mult" differs only in case from object "MULT" in the same scope
-Info (10281): Verilog HDL Declaration information at cpu.v(86): object "div" differs only in case from object "DIV" in the same scope
