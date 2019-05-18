@@ -1,0 +1,6 @@
+inc 60
+inc 60
+inc 60
+inc 60
+inc 60
+lw 15 60 0

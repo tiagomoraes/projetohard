@@ -1,0 +1,5 @@
+j 4
+addi 15 0 14
+addi 13 0 23
+addi 16 0 -4
+addi 14 0 21

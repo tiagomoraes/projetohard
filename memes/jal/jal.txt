@@ -1,0 +1,7 @@
+jal 6
+addi 15 0 14
+addi 13 0 23
+addi 16 0 -4
+addi 14 0 21
+addi 18 0 40
+addi 19 0 -35
